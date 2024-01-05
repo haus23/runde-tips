@@ -1,6 +1,7 @@
+# NPM deps
 node_modules
 
-/.cache
-/build
-/public/build
-.env
+# Remix cache/build
+.cache/
+build/
+public/build/
