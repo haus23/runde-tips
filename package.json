@@ -1,5 +1,11 @@
 {
   "name": "runde-tips",
+  "license": "MIT",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/haus23/runde-tips.git"
+  },
   "private": true,
   "sideEffects": false,
   "type": "module",
