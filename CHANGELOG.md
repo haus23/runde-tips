@@ -1,6 +1,28 @@
 # Changelog
 
 
+## v0.0.1
+
+[compare changes](https://github.com/haus23/runde-tips/compare/v0.0.1-0...v0.0.1)
+
+### 🩹 Fixes
+
+- Remove useLayoutEffect warning. Intro to framer motion as well. ([8b0458f](https://github.com/haus23/runde-tips/commit/8b0458f))
+- Start a new color system. ([f9bfb1f](https://github.com/haus23/runde-tips/commit/f9bfb1f))
+
+### 📦 Build
+
+- Add imports path. Start tweaking tsconfig. ([fd83dfb](https://github.com/haus23/runde-tips/commit/fd83dfb))
+
+### 🏡 Chore
+
+- **release:** V0.0.1-0 ([1850bb5](https://github.com/haus23/runde-tips/commit/1850bb5))
+- Wipe out current radix based color system. ([520715e](https://github.com/haus23/runde-tips/commit/520715e))
+
+### ❤️ Contributors
+
+- Micha Buchholz <micha@haus23.net>
+
 ## v0.0.1-0
 
 
