@@ -1,4 +1,5 @@
 import type { MetaFunction } from '@remix-run/node';
+import { AppHeader } from '~/components/header/app-header';
 
 export const meta: MetaFunction = () => {
   return [
@@ -9,8 +10,8 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-    <div className="h-14 flex items-center px-4">
-      <h1 className="text-2xl font-medium">runde.tips</h1>
+    <div>
+      <AppHeader />
     </div>
   );
 }
