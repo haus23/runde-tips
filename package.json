@@ -9,6 +9,9 @@
   "private": true,
   "sideEffects": false,
   "type": "module",
+  "imports": {
+    "#*": "./*"
+  },
   "scripts": {
     "build": "remix build",
     "dev": "remix dev --manual",
