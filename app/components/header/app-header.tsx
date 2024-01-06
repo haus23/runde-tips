@@ -8,10 +8,10 @@ export function AppHeader() {
     <motion.header
       style={{
         borderBottomColor: useTransform(scrollY, (v) =>
-          Number(!v) ? 'var(--mauve-1)' : 'var(--mauve-6)',
+          Number(!v) ? 'var(--app-bg)' : 'var(--layout-divider)',
         ),
       }}
-      className="bg-gray-50 fixed inset-x-0 top-0 h-14 flex items-center px-2 sm:px-4  border-b"
+      className="bg-app fixed inset-x-0 top-0 h-14 flex items-center px-2 sm:px-4 border-b"
     >
       <Logo />
     </motion.header>

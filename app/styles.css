@@ -3,4 +3,23 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --app-bg: #ffffff;
+    --panel-bg: #faf9fb; /* Darker - Mauve 2 */
+    --layout-divider: #f2eff3; /* More Dark - Mauve 3 */
+
+    --app-fg: #211f26; /* Mauve 11 */
+  }
+
+  :root[class~="dark"] {
+    --app-bg: #1a191b; /* Mauve 2 */
+    --panel-bg: #121113; /* Darker - Mauve 1 */
+    --layout-divider: #000000; /* More Dark */
+
+    --app-fg: #eeeef0; /* Mauve 12 */
+  }
+
+  body {
+    @apply bg-[var(--app-bg)] text-[var(--app-fg)];
+  }
 }
