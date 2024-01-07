@@ -25,7 +25,7 @@
     "@remix-run/serve": "^2.4.1",
     "cva": "1.0.0-beta.1",
     "framer-motion": "^10.17.9",
-    "isbot": "^3.6.8",
+    "isbot": "^3.8.0",
     "react": "^18.2.0",
     "react-aria-components": "^1.0.0",
     "react-dom": "^18.2.0",
@@ -36,9 +36,9 @@
     "@biomejs/biome": "^1.4.1",
     "@ladle/react": "^4.0.2",
     "@remix-run/dev": "^2.4.1",
-    "@types/react": "^18.2.20",
-    "@types/react-dom": "^18.2.7",
-    "typescript": "^5.1.6"
+    "@types/react": "^18.2.47",
+    "@types/react-dom": "^18.2.18",
+    "typescript": "^5.3.3"
   },
   "engines": {
     "node": ">=18.0.0"
