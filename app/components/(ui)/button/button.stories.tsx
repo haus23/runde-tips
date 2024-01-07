@@ -1,4 +1,5 @@
 import type { Story, StoryDefault } from '@ladle/react';
+import { Button } from './button';
 
 export default ({
   title: 'UI / Button',
@@ -12,7 +13,7 @@ export default ({
 } satisfies StoryDefault);
 
 export const Default: Story = () => (
-  <button className="bg-ca hover:bg-ca-hover" type="button">
+  <Button variant="subtle" size="md">
     Click mich
-  </button>
+  </Button>
 );
