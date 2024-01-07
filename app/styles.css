@@ -6,9 +6,41 @@
   :root {
     --app-bg: #ffffff;
     --panel-bg: #faf9fb; /* Darker - Mauve 2 */
+
     --layout-divider: #f2eff3; /* More Dark - Mauve 3 */
 
-    --app-fg: #211f26; /* Mauve 11 */
+    --app-fg: #211f26; /* Mauve 12 */
+
+    --component-accent-bg: #f4f0fe; /* Violet 3 */
+    --component-accent-hover: #ebe4ff; /* Violet 4 */
+    --component-accent-active: #e1d9ff; /* Violet 5 */
+    --component-accent-border-ring: #c2b5f5; /* Violet 7 */
+  }
+
+  :root[class~="mauve"] {
+    --app-bg: #ffffff;
+    --panel-bg: #faf9fb; /* Darker - Mauve 2 */
+    --layout-divider: #f2eff3; /* More Dark - Mauve 3 */
+
+    --app-fg: #211f26; /* Mauve 12 */
+
+    --component-accent-bg: #f4f0fe; /* Violet 3 */
+    --component-accent-hover: #ebe4ff; /* Violet 4 */
+    --component-accent-active: #e1d9ff; /* Violet 5 */
+    --component-accent-border-ring: #c2b5f5; /* Violet 7 */
+  }
+
+  :root[class~="sand"] {
+    --app-bg: #ffffff;
+    --panel-bg: #f9f9f8; /* Darker - Sand 2 */
+    --layout-divider: #f1f0ef; /* More Dark - Sand 3 */
+
+    --app-fg: #21201c; /* Sand 12 */
+
+    --component-accent-bg: #ffefd6; /* Orange 3 */
+    --component-accent-hover: #ffdfb5; /* Orange 4 */
+    --component-accent-active: #ffd19a; /* Orange 5 */
+    --component-accent-border-ring: #f5ae73; /* Orange 7 */
   }
 
   :root[class~="dark"] {
@@ -17,6 +49,37 @@
     --layout-divider: #000000; /* More Dark */
 
     --app-fg: #eeeef0; /* Mauve 12 */
+
+    --component-accent-bg: #291f43; /* Violet 3 */
+    --component-accent-hover: #33255b; /* Violet 4 */
+    --component-accent-active: #3c2e69; /* Violet 5 */
+    --component-accent-border-ring: #56468b; /* Violet 7 */
+  }
+
+  :root[class~="dark"][class~="mauve"] {
+    --app-bg: #1a191b; /* Mauve 2 */
+    --panel-bg: #121113; /* Darker - Mauve 1 */
+    --layout-divider: #000000; /* More Dark */
+
+    --app-fg: #eeeef0; /* Mauve 12 */
+
+    --component-accent-bg: #291f43; /* Violet 3 */
+    --component-accent-hover: #33255b; /* Violet 4 */
+    --component-accent-active: #3c2e69; /* Violet 5 */
+    --component-accent-border-ring: #56468b; /* Violet 7 */
+  }
+
+  :root[class~="dark"][class~="sand"] {
+    --app-bg: #191918; /* Sand 2 */
+    --panel-bg: #111110; /* Darker - Sand 1 */
+    --layout-divider: #000000; /* More Dark */
+
+    --app-fg: #eeeeec; /* Sand 12 */
+
+    --component-accent-bg: #331e0b; /* Orange 3 */
+    --component-accent-hover: #462100; /* Orange 4 */
+    --component-accent-active: #562800; /* Orange 5 */
+    --component-accent-border-ring: #7e451d; /* Orange 7 */
   }
 
   body {

@@ -5,16 +5,20 @@ export default ({
   theme: {
     backgroundColor: ({ theme }) => ({
       ...theme('colors'), // Remove this line when issue #1 is done
-      app: theme('colors.app-bg'),
-      panel: theme('colors.panel-bg'),
-    }),
-    extend: {
-      // Do not extend any more when issue #1 is done
-      colors: {
-        'app-bg': 'var(--app-bg)',
-        'panel-bg': 'var(--panel-bg)',
+      app: 'var(--app-bg)',
+      panel: 'var(--panel-bg)',
+      // Component with accent color
+      ca: {
+        DEFAULT: 'var(--component-accent-bg)',
+        hover: 'var(--component-accent-hover)',
+        active: 'var(--component-accent-active)',
       },
-    },
+    }),
+    ringColor: ({ theme }) => ({
+      ...theme('colors'), // Remove this line when issue #1 is done
+      ca: 'var(--component-accent-border-ring)',
+    }),
+    extend: {}, // Remove unnecessary default colors
   },
   plugins: [],
 } satisfies Config);
