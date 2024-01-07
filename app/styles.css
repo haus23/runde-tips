@@ -11,6 +11,11 @@
 
     --app-fg: #211f26; /* Mauve 12 */
 
+    --component-neutral-bg: #f2eff3; /* Mauve 3 */
+    --component-neutral-hover: #eae7ec; /* Mauve 4 */
+    --component-neutral-active: #e3dfe6; /* Mauve 5 */
+    --component-neutral-border-ring: #d0cdd7; /* Mauve 7 */
+
     --component-accent-bg: #f4f0fe; /* Violet 3 */
     --component-accent-hover: #ebe4ff; /* Violet 4 */
     --component-accent-active: #e1d9ff; /* Violet 5 */
@@ -23,6 +28,11 @@
     --layout-divider: #f2eff3; /* More Dark - Mauve 3 */
 
     --app-fg: #211f26; /* Mauve 12 */
+
+    --component-neutral-bg: #f2eff3; /* Mauve 3 */
+    --component-neutral-hover: #eae7ec; /* Mauve 4 */
+    --component-neutral-active: #e3dfe6; /* Mauve 5 */
+    --component-neutral-border-ring: #d0cdd7; /* Mauve 7 */
 
     --component-accent-bg: #f4f0fe; /* Violet 3 */
     --component-accent-hover: #ebe4ff; /* Violet 4 */
@@ -37,6 +47,11 @@
 
     --app-fg: #21201c; /* Sand 12 */
 
+    --component-neutral-bg: #f1f0ef; /* Sand 3 */
+    --component-neutral-hover: #e9e8e6; /* Sand 4 */
+    --component-neutral-active: #e2e1de; /* Sand 5 */
+    --component-neutral-border-ring: #cfceca; /* Sand 7 */
+
     --component-accent-bg: #ffefd6; /* Orange 3 */
     --component-accent-hover: #ffdfb5; /* Orange 4 */
     --component-accent-active: #ffd19a; /* Orange 5 */
@@ -49,6 +64,11 @@
     --layout-divider: #000000; /* More Dark */
 
     --app-fg: #eeeef0; /* Mauve 12 */
+
+    --component-neutral-bg: #232225; /* Mauve 3 */
+    --component-neutral-hover: #2b292d; /* Mauve 4 */
+    --component-neutral-active: #323035; /* Mauve 5 */
+    --component-neutral-border-ring: #49474e; /* Mauve 7 */
 
     --component-accent-bg: #291f43; /* Violet 3 */
     --component-accent-hover: #33255b; /* Violet 4 */
@@ -63,6 +83,11 @@
 
     --app-fg: #eeeef0; /* Mauve 12 */
 
+    --component-neutral-bg: #232225; /* Mauve 3 */
+    --component-neutral-hover: #2b292d; /* Mauve 4 */
+    --component-neutral-active: #323035; /* Mauve 5 */
+    --component-neutral-border-ring: #49474e; /* Mauve 7 */
+
     --component-accent-bg: #291f43; /* Violet 3 */
     --component-accent-hover: #33255b; /* Violet 4 */
     --component-accent-active: #3c2e69; /* Violet 5 */
@@ -75,6 +100,11 @@
     --layout-divider: #000000; /* More Dark */
 
     --app-fg: #eeeeec; /* Sand 12 */
+
+    --component-neutral-bg: #222221; /* Sand 3 */
+    --component-neutral-hover: #2a2a28; /* Sand 4 */
+    --component-neutral-active: #31312e; /* Sand 5 */
+    --component-neutral-border-ring: #494844; /* Sand 7 */
 
     --component-accent-bg: #331e0b; /* Orange 3 */
     --component-accent-hover: #462100; /* Orange 4 */

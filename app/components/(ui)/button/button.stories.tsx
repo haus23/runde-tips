@@ -13,7 +13,9 @@ export default ({
 } satisfies StoryDefault);
 
 export const Default: Story = () => (
-  <Button variant="subtle" size="md">
-    Click mich
-  </Button>
+  <Button variant="default">Click mich</Button>
+);
+
+export const Primary: Story = () => (
+  <Button variant="primary">Click mich</Button>
 );

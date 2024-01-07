@@ -7,12 +7,14 @@ const buttonVariants = cva({
   base: [
     'inline-flex items-center justify-center rounded-md font-semibold outline-none transition-colors',
     // Focus
-    'focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 dark:focus:ring-slate-400 dark:focus:ring-offset-slate-900',
+    'focus:ring-2 focus:ring-cn focus:ring-offset-2 focus:ring-offset-app',
     // Disabled
     'disabled:pointer-events-none disabled:opacity-40',
   ],
   variants: {
     variant: {
+      default: 'bg-cn hover:bg-cn-hover active:bg-cn-active',
+      primary: 'bg-ca hover:bg-ca-hover active:bg-ca-active focus:ring-ca',
       solid:
         'bg-slate-900 text-white hover:bg-slate-700 open:bg-slate-100 dark:bg-slate-50 dark:text-slate-900 dark:hover:bg-slate-200 dark:open:bg-slate-800',
       destructive:
@@ -33,7 +35,7 @@ const buttonVariants = cva({
     },
   },
   defaultVariants: {
-    variant: 'solid',
+    variant: 'default',
     size: 'md',
   },
 });
