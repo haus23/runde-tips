@@ -26,6 +26,7 @@
     "cva": "1.0.0-beta.1",
     "framer-motion": "^10.17.9",
     "isbot": "^3.8.0",
+    "lucide-react": "^0.307.0",
     "react": "^18.2.0",
     "react-aria-components": "^1.0.0",
     "react-dom": "^18.2.0",
