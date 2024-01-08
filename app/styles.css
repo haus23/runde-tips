@@ -14,6 +14,7 @@
     --layout-divider: #f2eff3; /* More Dark - Mauve 3 */
 
     --app-fg: #211f26; /* Mauve 12 */
+    --app-fg-subtle: #65636d; /* Mauve 11 */
 
     --component-neutral-bg: #f2eff3; /* Mauve 3 */
     --component-neutral-hover: #eae7ec; /* Mauve 4 */
@@ -34,6 +35,7 @@
     --layout-divider: #f1f0ef; /* More Dark - Sand 3 */
 
     --app-fg: #21201c; /* Sand 12 */
+    --app-fg-subtle: #63635e; /* Sand 11 */
 
     --component-neutral-bg: #f1f0ef; /* Sand 3 */
     --component-neutral-hover: #e9e8e6; /* Sand 4 */
@@ -54,6 +56,7 @@
     --layout-divider: #000000; /* More Dark */
 
     --app-fg: #eeeef0; /* Mauve 12 */
+    --app-fg-subtle: #b5b2bc; /* Mauve 11 */
 
     --component-neutral-bg: #232225; /* Mauve 3 */
     --component-neutral-hover: #2b292d; /* Mauve 4 */
@@ -74,6 +77,7 @@
     --layout-divider: #000000; /* More Dark */
 
     --app-fg: #eeeeec; /* Sand 12 */
+    --app-fg-subtle: #b5b3ad; /* Sand 11 */
 
     --component-neutral-bg: #222221; /* Sand 3 */
     --component-neutral-hover: #2a2a28; /* Sand 4 */

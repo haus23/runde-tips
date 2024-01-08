@@ -11,6 +11,7 @@ export const Provider: GlobalProvider = ({ children, globalState }) => {
         : document.querySelector('iframe')?.contentWindow?.document
             .documentElement;
     documentElement?.classList.toggle('dark', darkMode);
+    documentElement?.classList.add('orange', 'sand');
   }, [globalState.theme, globalState.width]);
 
   return children;

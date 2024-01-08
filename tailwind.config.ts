@@ -3,6 +3,11 @@ import type { Config } from 'tailwindcss';
 export default ({
   content: ['./app/**/*.{ts,tsx}'],
   theme: {
+    textColor: ({ theme }) => ({
+      ...theme('colors'), // Remove this line when issue #1 is done
+      app: 'var(--app-fg)',
+      subtle: 'var(--app-fg-subtle)',
+    }),
     backgroundColor: ({ theme }) => ({
       ...theme('colors'), // Remove this line when issue #1 is done
       app: 'var(--app-bg)',
