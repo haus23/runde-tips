@@ -1,6 +1,6 @@
 import type { Config } from 'tailwindcss';
 
-export default {
+export default ({
   content: ['./app/**/*.{ts,tsx}'],
   theme: {
     backgroundColor: ({ theme }) => ({
@@ -19,6 +19,10 @@ export default {
         hover: 'var(--component-accent-hover)',
         active: 'var(--component-accent-active)',
       },
+      teaser: {
+        violet: 'var(--violet-teaser)',
+        orange: 'var(--orange-teaser)',
+      },
     }),
     ringColor: ({ theme }) => ({
       ...theme('colors'), // Remove this line when issue #1 is done
@@ -32,4 +36,4 @@ export default {
     extend: {}, // Remove unnecessary default colors
   },
   plugins: [],
-} satisfies Config;
+} satisfies Config);
