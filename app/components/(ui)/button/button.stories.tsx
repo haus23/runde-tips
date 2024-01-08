@@ -1,7 +1,7 @@
 import type { Story, StoryDefault } from '@ladle/react';
 import { Button } from './button';
 
-export default ({
+export default {
   title: 'UI / Button',
   decorators: [
     (Component) => (
@@ -10,7 +10,7 @@ export default ({
       </div>
     ),
   ],
-} satisfies StoryDefault);
+} satisfies StoryDefault;
 
 export const Default: Story = () => (
   <Button variant="default">Click mich</Button>

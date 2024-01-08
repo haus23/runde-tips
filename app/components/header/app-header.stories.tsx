@@ -1,8 +1,8 @@
 import { StoryDefault } from '@ladle/react';
 import { AppHeader as Component } from './app-header';
 
-export default ({
+export default {
   title: 'Header',
-} satisfies StoryDefault);
+} satisfies StoryDefault;
 
 export const AppHeader = () => <Component />;

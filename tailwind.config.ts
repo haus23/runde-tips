@@ -1,6 +1,6 @@
 import type { Config } from 'tailwindcss';
 
-export default ({
+export default {
   content: ['./app/**/*.{ts,tsx}'],
   theme: {
     backgroundColor: ({ theme }) => ({
@@ -32,4 +32,4 @@ export default ({
     extend: {}, // Remove unnecessary default colors
   },
   plugins: [],
-} satisfies Config);
+} satisfies Config;

@@ -1,5 +1,5 @@
-import { AppHeader } from '#app/components/header/app-header';
 import type { MetaFunction } from '@remix-run/node';
+import { AppHeader } from '#app/components/header/app-header';
 
 export const meta: MetaFunction = () => {
   return [
