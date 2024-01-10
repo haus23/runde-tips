@@ -1,8 +1,8 @@
 import type { Story, StoryDefault } from '@ladle/react';
-import { SunIcon } from 'lucide-react';
+import { SearchIcon, SunIcon } from 'lucide-react';
 import { Button } from './button';
 
-export default ({
+export default {
   title: 'UI / Button',
   decorators: [
     (Component) => (
@@ -11,7 +11,7 @@ export default ({
       </div>
     ),
   ],
-} satisfies StoryDefault);
+} satisfies StoryDefault;
 
 export const Default: Story = () => (
   <Button variant="default">Click mich</Button>
@@ -21,9 +21,10 @@ export const Primary: Story = () => (
   <Button variant="primary">Click mich</Button>
 );
 
-export const Toolbar: Story = () => (
-  <Button variant="toolbar" size="toolbar">
-    Search
+export const ToolbarWithIcon: Story = () => (
+  <Button variant="toolbar" size="toolbar" className="pr-3 flex gap-x-1">
+    <SearchIcon className="h-5" />
+    <span>Turnier</span>
   </Button>
 );
 
