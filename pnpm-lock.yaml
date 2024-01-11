@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@epic-web/client-hints':
+    specifier: ^1.2.2
+    version: 1.2.2
   '@epic-web/invariant':
     specifier: ^1.0.0
     version: 1.0.0
@@ -523,6 +526,10 @@ packages:
     requiresBuild: true
     dev: false
     optional: true
+
+  /@epic-web/client-hints@1.2.2:
+    resolution: {integrity: sha512-36ei/PACvvi/nh/7uKbITnZd8EP39UzYdmofrk5lqJLaPRpBt4pMeDf1bgOp0DXpuiWSVd02tcQgpu0H7blB2A==}
+    dev: false
 
   /@epic-web/invariant@1.0.0:
     resolution: {integrity: sha512-lrTPqgvfFQtR/eY/qkIzp98OGdNJu0m5ji3q/nJI8v3SXkRKEnWiOxMmbvcSoAIzv/cGiuvRy57k4suKQSAdwA==}

@@ -26,7 +26,7 @@ export function useTheme() {
 
   const theme = {
     brand: rootLoaderData.requestInfo.prefs.data.theme?.brand || 'violet',
-    colorScheme: 'system',
+    colorScheme: rootLoaderData.requestInfo.hints.colorScheme,
   } satisfies Theme;
 
   function setTheme(theme: Theme) {
@@ -37,6 +37,6 @@ export function useTheme() {
     theme,
     setTheme,
     brandColors: brandColors[theme.brand],
-    colorScheme: 'dark',
+    colorScheme: theme.colorScheme,
   };
 }
