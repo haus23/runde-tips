@@ -15,6 +15,8 @@ const buttonVariants = cva({
     variant: {
       default: 'bg-cn hover:bg-cn-hover active:bg-cn-active',
       primary: 'bg-ca hover:bg-ca-hover active:bg-ca-active focus:ring-ca',
+      toolbar:
+        'bg-ca hover:bg-ca-hover active:bg-ca-active focus:ring-ca text-subtle hover:text-app',
       solid:
         'bg-slate-900 text-white hover:bg-slate-700 open:bg-slate-100 dark:bg-slate-50 dark:text-slate-900 dark:hover:bg-slate-200 dark:open:bg-slate-800',
       destructive:
@@ -32,6 +34,7 @@ const buttonVariants = cva({
       md: 'h-10 px-4 text-base',
       sm: 'h-8 px-3 text-sm',
       xs: 'h-6 px-2 text-xs',
+      toolbar: 'p-1.5',
     },
   },
   defaultVariants: {
@@ -40,7 +43,7 @@ const buttonVariants = cva({
   },
 });
 
-export interface _ButtonProps
+interface _ButtonProps
   extends ButtonProps,
     VariantProps<typeof buttonVariants> {
   className?: string;
