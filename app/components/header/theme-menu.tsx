@@ -29,6 +29,7 @@ export function ThemeMenu() {
 
   function handleAction(key: Key) {
     if (key === 'dark' || key === 'light' || key === 'system') {
+      key !== theme.colorScheme && setTheme({ ...theme, colorScheme: key });
     } else if (key === 'violet' || key === 'orange') {
       key !== theme.brand && setTheme({ ...theme, brand: key });
     }
