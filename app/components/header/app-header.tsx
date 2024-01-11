@@ -1,7 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { MoonIcon } from 'lucide-react';
-import { Button } from '../(ui)/button/button';
 import { Logo } from './logo/logo';
+import { ThemeMenu } from './theme-menu';
 
 export function AppHeader() {
   const { scrollY } = useScroll();
@@ -17,9 +16,7 @@ export function AppHeader() {
     >
       <Logo />
       <div>
-        <Button variant="toolbar" size="toolbar">
-          <MoonIcon className="h-5" />
-        </Button>
+        <ThemeMenu />
       </div>
     </motion.header>
   );

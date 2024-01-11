@@ -4,12 +4,12 @@
 
 @layer base {
   :root {
-    --violet-teaser: #6e56cf; /* Violet 9 */
+    --violet-teaser: #7d66d9; /* Violet 10 */
     --orange-teaser: #f76b15; /* Orange 9 */
   }
 
   :root[class~="mauve"] {
-    --app-bg: #ffffff;
+    --app-bg: #ffffff; /* Clean white */
     --panel-bg: #faf9fb; /* Darker - Mauve 2 */
     --layout-divider: #f2eff3; /* More Dark - Mauve 3 */
 
@@ -23,6 +23,9 @@
   }
 
   :root[class~="violet"] {
+    --accent-fg: #2f265f; /* Violet 12 */
+    --accent-fg-subtle: #6550b9; /* Violet 11 */
+
     --component-accent-bg: #f4f0fe; /* Violet 3 */
     --component-accent-hover: #ebe4ff; /* Violet 4 */
     --component-accent-active: #e1d9ff; /* Violet 5 */
@@ -30,9 +33,9 @@
   }
 
   :root[class~="sand"] {
-    --app-bg: #ffffff;
-    --panel-bg: #f9f9f8; /* Darker - Sand 2 */
-    --layout-divider: #f1f0ef; /* More Dark - Sand 3 */
+    --app-bg: #ffffff; /* Clean white */
+    --panel-bg: #f9f9f8; /* Sand 3 (More contrast to app-bg as with dark scheme */
+    --layout-divider: #dad9d6; /* Sand 6 */
 
     --app-fg: #21201c; /* Sand 12 */
     --app-fg-subtle: #63635e; /* Sand 11 */
@@ -44,6 +47,9 @@
   }
 
   :root[class~="orange"] {
+    --accent-fg: #582d1d; /* Orange 12 */
+    --accent-fg-subtle: #cc4e00; /* Orange 11 */
+
     --component-accent-bg: #ffefd6; /* Orange 3 */
     --component-accent-hover: #ffdfb5; /* Orange 4 */
     --component-accent-active: #ffd19a; /* Orange 5 */
@@ -52,8 +58,8 @@
 
   :root[class~="dark"][class~="mauve"] {
     --app-bg: #1a191b; /* Mauve 2 */
-    --panel-bg: #121113; /* Darker - Mauve 1 */
-    --layout-divider: #000000; /* More Dark */
+    --panel-bg: #121113; /* Mauve 1 - More contrast for text */
+    --layout-divider: #000000; /* Clean black */
 
     --app-fg: #eeeef0; /* Mauve 12 */
     --app-fg-subtle: #b5b2bc; /* Mauve 11 */
@@ -65,6 +71,9 @@
   }
 
   :root[class~="dark"][class~="violet"] {
+    --accent-fg: #e2ddfe; /* Violet 12 */
+    --accent-fg-subtle: #baa7ff; /* Violet 11 */
+
     --component-accent-bg: #291f43; /* Violet 3 */
     --component-accent-hover: #33255b; /* Violet 4 */
     --component-accent-active: #3c2e69; /* Violet 5 */
@@ -73,8 +82,8 @@
 
   :root[class~="dark"][class~="sand"] {
     --app-bg: #191918; /* Sand 2 */
-    --panel-bg: #111110; /* Darker - Sand 1 */
-    --layout-divider: #000000; /* More Dark */
+    --panel-bg: #111110; /* Sand 1 - More contrast for text */
+    --layout-divider: #000000; /* Clean black */
 
     --app-fg: #eeeeec; /* Sand 12 */
     --app-fg-subtle: #b5b3ad; /* Sand 11 */
@@ -86,6 +95,9 @@
   }
 
   :root[class~="dark"][class~="orange"] {
+    --accent-fg: #ffe0c2; /* Orange 12 */
+    --accent-fg-subtle: #ffa057; /* Orange 11 */
+
     --component-accent-bg: #331e0b; /* Orange 3 */
     --component-accent-hover: #462100; /* Orange 4 */
     --component-accent-active: #562800; /* Orange 5 */

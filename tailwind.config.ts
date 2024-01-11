@@ -1,12 +1,14 @@
 import type { Config } from 'tailwindcss';
 
-export default ({
+export default {
   content: ['./app/**/*.{ts,tsx}'],
   theme: {
     textColor: ({ theme }) => ({
       ...theme('colors'), // Remove this line when issue #1 is done
       app: 'var(--app-fg)',
       subtle: 'var(--app-fg-subtle)',
+      'app-accent': 'var(--accent-fg)',
+      'subtle-accent': 'var(--accent-fg-subtle)',
     }),
     backgroundColor: ({ theme }) => ({
       ...theme('colors'), // Remove this line when issue #1 is done
@@ -29,6 +31,11 @@ export default ({
         orange: 'var(--orange-teaser)',
       },
     }),
+    borderColor: ({ theme }) => ({
+      ...theme('colors'), // Remove this line when issue #1 is done
+      ca: 'var(--component-accent-border-ring)',
+      cn: 'var(--component-neutral-border-ring)',
+    }),
     ringColor: ({ theme }) => ({
       ...theme('colors'), // Remove this line when issue #1 is done
       ca: 'var(--component-accent-border-ring)',
@@ -40,5 +47,8 @@ export default ({
     }),
     extend: {}, // Remove unnecessary default colors
   },
-  plugins: [],
-} satisfies Config);
+  plugins: [
+    require('tailwindcss-animate'),
+    require('tailwindcss-react-aria-components'),
+  ],
+} satisfies Config;

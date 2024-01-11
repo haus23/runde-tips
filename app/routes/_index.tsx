@@ -12,7 +12,6 @@ export default function Index() {
   return (
     <div>
       <AppHeader />
-      <div className="mx-12 mt-20 h-[2000px] p-4 bg-panel">Content</div>
     </div>
   );
 }
