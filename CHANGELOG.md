@@ -1,6 +1,45 @@
 # Changelog
 
 
+## v0.0.2
+
+[compare changes](https://github.com/haus23/runde-tips/compare/v0.0.1...v0.0.2)
+
+### 🚀 Enhancements
+
+- Add component colors and prepare themes handling. ([6b54cef](https://github.com/haus23/runde-tips/commit/6b54cef))
+- Add button component and prepare variant system. ([0c43889](https://github.com/haus23/runde-tips/commit/0c43889))
+- Prepare colors and provide teaser colors. ([2d38aab](https://github.com/haus23/runde-tips/commit/2d38aab))
+- Add icon library. ([0c36b94](https://github.com/haus23/runde-tips/commit/0c36b94))
+- Add toolbar button variant. Still open is issue #3 ([#3](https://github.com/haus23/runde-tips/issues/3))
+- Add menu component (WIP). Add theme menu (also WIP) ([0207091](https://github.com/haus23/runde-tips/commit/0207091))
+- Implement brand colors switching. See #4 ([#4](https://github.com/haus23/runde-tips/issues/4))
+- Implement getting and respecting color scheme from client. ([c89c020](https://github.com/haus23/runde-tips/commit/c89c020))
+- Implement color theme switching. Resolves #4 ([#4](https://github.com/haus23/runde-tips/issues/4))
+
+### 📦 Build
+
+- Install react aria components and helpers. ([e1e905f](https://github.com/haus23/runde-tips/commit/e1e905f))
+
+### 🏡 Chore
+
+- Update deps. ([b7ea007](https://github.com/haus23/runde-tips/commit/b7ea007))
+
+### ✅ Tests
+
+- Refine button stories. ([f46dc72](https://github.com/haus23/runde-tips/commit/f46dc72))
+- Drop ladle. Resolves #6 and resolves #5 ([#6](https://github.com/haus23/runde-tips/issues/6), [#5](https://github.com/haus23/runde-tips/issues/5))
+
+### 🤖 CI
+
+- Update biome. ([213ebab](https://github.com/haus23/runde-tips/commit/213ebab))
+- Update biome. ([bab3853](https://github.com/haus23/runde-tips/commit/bab3853))
+- Add sink route. See #6 ([#6](https://github.com/haus23/runde-tips/issues/6))
+
+### ❤️ Contributors
+
+- Micha Buchholz <micha@haus23.net>
+
 ## v0.0.1
 
 [compare changes](https://github.com/haus23/runde-tips/compare/v0.0.1-0...v0.0.1)
