@@ -1,51 +1,25 @@
 import { cx } from '#app/utils/cva.config';
 import { useContext, useRef } from 'react';
-import { useHover, useMenuTrigger } from 'react-aria';
+import { useHover } from 'react-aria';
 import {
-  ButtonContext,
   Menu,
-  MenuContext,
   MenuItem,
   MenuItemProps,
   MenuProps,
+  MenuTrigger,
   MenuTriggerProps,
   OverlayTriggerStateContext,
   Popover,
-  PopoverContext,
   PopoverProps,
-  Provider,
   Section,
   SectionProps,
   Separator,
   SeparatorProps,
 } from 'react-aria-components';
-import { useMenuTriggerState } from 'react-stately';
 
-function _Menu({ ...props }: MenuTriggerProps) {
-  const state = useMenuTriggerState(props);
-  const ref = useRef(null);
-  const { menuTriggerProps, menuProps } = useMenuTrigger(props, state, ref);
-
-  return (
-    <Provider
-      values={[
-        [
-          ButtonContext,
-          {
-            ...menuTriggerProps,
-            ref,
-            isPressed: state.isOpen,
-          },
-        ],
-        [OverlayTriggerStateContext, state],
-        [PopoverContext, { triggerRef: ref, placement: 'bottom start' }],
-        [MenuContext, menuProps],
-      ]}
-    >
-      {props.children}
-    </Provider>
-  );
-}
+export const _Menu = (props: MenuTriggerProps) => {
+  return <MenuTrigger {...props} />;
+};
 
 interface _MenuContentProps<T>
   extends Omit<PopoverProps, 'children' | 'style' | 'className'>,
