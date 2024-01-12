@@ -1,3 +1,4 @@
+import { cx } from '#app/utils/cva.config';
 import { useContext, useRef } from 'react';
 import { useHover, useMenuTrigger } from 'react-aria';
 import {
@@ -19,7 +20,6 @@ import {
   SeparatorProps,
 } from 'react-aria-components';
 import { useMenuTriggerState } from 'react-stately';
-import { cx } from '#app/utils/cva.config';
 
 function _Menu({ ...props }: MenuTriggerProps) {
   const state = useMenuTriggerState(props);
@@ -49,36 +49,41 @@ function _Menu({ ...props }: MenuTriggerProps) {
 
 interface _MenuContentProps<T>
   extends Omit<PopoverProps, 'children' | 'style' | 'className'>,
-    MenuProps<T> {}
+    MenuProps<T> {
+  autoClose?: boolean;
+}
 
-function _MenuContent<T extends object>({ ...props }: _MenuContentProps<T>) {
+function _MenuContent<T extends object>({
+  autoClose = false,
+  ...props
+}: _MenuContentProps<T>) {
   const ctx = useContext(OverlayTriggerStateContext);
   const hasClosingIntent = useRef(false);
   const debounceClosing = useRef(0);
 
   const { hoverProps } = useHover({
-    onHoverStart: (e) => {
-      if (hasClosingIntent) {
+    onHoverStart: () => {
+      if (autoClose && hasClosingIntent) {
         hasClosingIntent.current = false;
         clearTimeout(debounceClosing.current);
       }
     },
     onHoverEnd: () => {
-      hasClosingIntent.current = true;
-      debounceClosing.current = window.setTimeout(() => {
-        hasClosingIntent && ctx.close();
-      }, 750);
+      if (autoClose) {
+        hasClosingIntent.current = true;
+        debounceClosing.current = window.setTimeout(() => {
+          hasClosingIntent && ctx.close();
+        }, 750);
+      }
     },
   });
 
   return (
     <Popover
       placement="bottom end"
-      isNonModal
       {...props}
       className={cx(
-        // Base
-        'min-w-[150px] overflow-auto rounded-md bg-cn p-1 shadow outline-none',
+        'min-w-[150px] overflow-auto rounded-md bg-cn shadow outline-none',
       )}
     >
       <div {...hoverProps}>
@@ -92,14 +97,9 @@ function _MenuItem({ className, ...props }: MenuItemProps) {
   return (
     <MenuItem
       className={cx(
-        'group',
         'flex items-center gap-2 rounded-sm px-2 py-1.5 text-subtle outline-none transition-colors select-none',
-        // Hover
         'hover:bg-cn-hover hover:text-app',
-        // Focus
         'focus:bg-cn-hover focus:text-app',
-        // Disabled
-        'disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-transparent dark:disabled:hover:bg-transparent',
         className,
       )}
       {...props}
@@ -114,7 +114,7 @@ const _MenuSection = <T extends object>(props: SectionProps<T>) => {
 const _MenuSeparator = ({ className, ...props }: SeparatorProps) => {
   return (
     <Separator
-      className={cx('-mx-1 my-1 border-t border-cn', className)}
+      className={cx('mx-1 my-1.5 border-t border-cn', className)}
       {...props}
     />
   );

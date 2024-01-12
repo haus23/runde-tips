@@ -40,7 +40,7 @@ export function ThemeMenu() {
       <Button variant="toolbar" size="toolbar">
         <Icon className="h-5" />
       </Button>
-      <MenuContent onAction={handleAction}>
+      <MenuContent onAction={handleAction} autoClose>
         <MenuSection>
           {colorSchemes.map((t) => (
             <MenuItem
