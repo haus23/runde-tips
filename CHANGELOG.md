@@ -1,6 +1,30 @@
 # Changelog
 
 
+## v0.0.3
+
+[compare changes](https://github.com/haus23/runde-tips/compare/v0.0.2...v0.0.3)
+
+### 🚀 Enhancements
+
+- Add user model ([bdd656e](https://github.com/haus23/runde-tips/commit/bdd656e))
+- Add script to create an initial admin user. ([aefcdc7](https://github.com/haus23/runde-tips/commit/aefcdc7))
+
+### 🩹 Fixes
+
+- Change favicon. ([f52505d](https://github.com/haus23/runde-tips/commit/f52505d))
+- Clean up menu component. ([85b0bb9](https://github.com/haus23/runde-tips/commit/85b0bb9))
+- More cleanup. ([a76bb11](https://github.com/haus23/runde-tips/commit/a76bb11))
+
+### 🏡 Chore
+
+- Update all deps. ([ab6ac6c](https://github.com/haus23/runde-tips/commit/ab6ac6c))
+- Install and initialize prisma. ([2d983e2](https://github.com/haus23/runde-tips/commit/2d983e2))
+
+### ❤️ Contributors
+
+- Micha Buchholz ([@lean-dev](http://github.com/lean-dev))
+
 ## v0.0.2
 
 [compare changes](https://github.com/haus23/runde-tips/compare/v0.0.1...v0.0.2)
