@@ -1,6 +1,27 @@
 # Changelog
 
 
+## v0.0.4
+
+[compare changes](https://github.com/haus23/runde-tips/compare/v0.0.3...v0.0.4)
+
+### 🚀 Enhancements
+
+- Switch to flat routes. Resolves #10 ([#10](https://github.com/haus23/runde-tips/issues/10))
+
+### 📖 Documentation
+
+- Start documenting the project. ([b465ccc](https://github.com/haus23/runde-tips/commit/b465ccc))
+
+### 🏡 Chore
+
+- Ignore log files. ([a45e88e](https://github.com/haus23/runde-tips/commit/a45e88e))
+- Install flat routes package. ([7bb4ce3](https://github.com/haus23/runde-tips/commit/7bb4ce3))
+
+### ❤️ Contributors
+
+- Micha Buchholz ([@lean-dev](http://github.com/lean-dev))
+
 ## v0.0.3
 
 [compare changes](https://github.com/haus23/runde-tips/compare/v0.0.2...v0.0.3)
