@@ -1,3 +1,5 @@
+import { cx } from '#app/utils/cva.config';
+import { Link, NavLink } from '@remix-run/react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Logo } from './logo/logo';
 import { ThemeMenu } from './theme-menu';
@@ -14,9 +16,27 @@ export function AppHeader() {
       }}
       className="bg-app fixed inset-x-0 top-0 h-14 flex items-center justify-between px-2 sm:px-4 border-b"
     >
-      <Logo />
-      <div>
-        <ThemeMenu />
+      <Link to="/">
+        <Logo />
+      </Link>
+      <div className="flex items-center h-12 gap-x-2">
+        <div>
+          <ThemeMenu />
+        </div>
+        <div className="flex items-center gap-x-2">
+          <span className="border border-cn h-8 mx-2" />
+          <NavLink
+            className={({ isActive }) =>
+              cx(
+                'transition-colors hover:text-subtle-accent',
+                isActive && 'text-subtle-accent',
+              )
+            }
+            to="/login"
+          >
+            Log In
+          </NavLink>
+        </div>
       </div>
     </motion.header>
   );
