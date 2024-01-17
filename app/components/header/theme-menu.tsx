@@ -2,7 +2,7 @@ import { useTheme } from '#app/modules/theme/theme';
 import { cx } from 'cva';
 import { LaptopIcon, MoonIcon, SunIcon } from 'lucide-react';
 import { Key } from 'react-aria-components';
-import { Button } from '../(ui)/button/button';
+import { Button } from '../(ui)/button';
 import {
   Menu,
   MenuContent,
