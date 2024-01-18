@@ -1,6 +1,6 @@
-import { cva } from '#app/utils/cva.config';
-import { cx, type VariantProps } from 'cva';
+import { type VariantProps, cx } from 'cva';
 import { Input, InputProps } from 'react-aria-components';
+import { cva } from '#app/utils/cva.config';
 
 const inputVariants = cva({
   base: [

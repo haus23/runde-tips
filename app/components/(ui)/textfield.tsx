@@ -1,10 +1,10 @@
-import { cx } from '#app/utils/cva.config';
 import {
   Text,
   TextField,
   TextFieldProps,
   TextProps,
 } from 'react-aria-components';
+import { cx } from '#app/utils/cva.config';
 
 const _TextField = ({ className, ...props }: TextFieldProps) => {
   return <TextField className={cx('w-full', className)} {...props} />;

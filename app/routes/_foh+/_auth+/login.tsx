@@ -1,9 +1,9 @@
+import { type ActionFunctionArgs, json, redirect } from '@remix-run/node';
 import { Button } from '#app/components/(ui)/button';
 import { Input } from '#app/components/(ui)/input';
 import { Label } from '#app/components/(ui)/label';
 import { TextField } from '#app/components/(ui)/textfield';
 import { sendEmail } from '#app/utils/email.server';
-import { json, redirect, type ActionFunctionArgs } from '@remix-run/node';
 
 export async function action({ request }: ActionFunctionArgs) {
   const body = await request.formData();

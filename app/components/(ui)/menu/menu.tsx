@@ -1,4 +1,3 @@
-import { cx } from '#app/utils/cva.config';
 import { useContext, useRef } from 'react';
 import { useHover } from 'react-aria';
 import {
@@ -16,6 +15,7 @@ import {
   Separator,
   SeparatorProps,
 } from 'react-aria-components';
+import { cx } from '#app/utils/cva.config';
 
 export const _Menu = (props: MenuTriggerProps) => {
   return <MenuTrigger {...props} />;
