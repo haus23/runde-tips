@@ -11,13 +11,13 @@
 
     // Module
     "moduleResolution": "Bundler",
+    "verbatimModuleSyntax": true,
     "paths": {
       "#*": ["./*"]
     },
 
     // Output
     "target": "ES2022",
-    // "lib": ["ES2022", "DOM", "DOM.Iterable"],  // set by target above
     "noEmit": true
   }
 }
