@@ -4,16 +4,20 @@ import { Input } from '#app/components/(ui)/input';
 import { Label } from '#app/components/(ui)/label';
 import { TextField } from '#app/components/(ui)/textfield';
 import { sendEmail } from '#app/utils/email.server';
+import { renderSentTotpEmail } from '#emails/send-totp';
 
 export async function action({ request }: ActionFunctionArgs) {
-  const body = await request.formData();
-  const email = body.get('email') as string;
+  const formBody = await request.formData();
+  const email = formBody.get('email') as string;
 
+  const body = await renderSentTotpEmail({
+    code: '123456',
+    magicLink: 'https://runde.tips/magic?code=123456',
+  });
   const result = await sendEmail({
     to: email,
     subject: 'Tipprunde Login Code',
-    text: 'Willkommen',
-    html: '<h1>Willkommen</h1>',
+    body,
   });
 
   if (result.status === 'error') {

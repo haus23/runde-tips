@@ -1,7 +1,6 @@
 declare namespace NodeJS {
   export interface ProcessEnv {
-    MAILJET_API_KEY: string;
-    MAILJET_SECRET: string;
+    PLUNK_API_KEY: string;
     THEME_SESSION_SECRET: string;
   }
 }

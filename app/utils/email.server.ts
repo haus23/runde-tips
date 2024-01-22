@@ -1,41 +1,13 @@
-export async function sendEmail({
-  to,
-  subject,
-  html,
-  text,
-}: {
+export async function sendEmail(props: {
   to: string;
   subject: string;
-  html: string;
-  text: string;
+  body: string;
 }) {
-  const email = {
-    Messages: [
-      {
-        From: {
-          Email: 'hallo@runde.tips',
-          Name: 'Tipprunde Haus23',
-        },
-        To: [
-          {
-            EMail: to,
-          },
-        ],
-        Subject: subject,
-        TextPart: text,
-        HTMLPart: html,
-      },
-    ],
-  };
-
-  const response = await fetch('https://api.mailjet.com/v3.1/send', {
+  const response = await fetch('https://api.useplunk.com/v1/send', {
     method: 'POST',
-    body: JSON.stringify(email),
+    body: JSON.stringify(props),
     headers: {
-      Authorization: `Basic ${Buffer.from(
-        `${process.env.MAILJET_API_KEY}:${process.env.MAILJET_SECRET}`,
-        'binary',
-      ).toString('base64')}`,
+      Authorization: `Bearer ${process.env.PLUNK_API_KEY}`,
       'Content-Type': 'application/json',
     },
   });
