@@ -8,6 +8,7 @@ export default {
       app: 'var(--app-fg)',
       subtle: 'var(--app-fg-subtle)',
       muted: 'var(--app-muted)',
+      error: 'var(--text-error)',
       'app-accent': 'var(--accent-fg)',
       'subtle-accent': 'var(--accent-fg-subtle)',
     }),

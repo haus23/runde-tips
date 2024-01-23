@@ -6,6 +6,7 @@
   :root {
     --violet-teaser: #7d66d9; /* Violet 10 */
     --orange-teaser: #f76b15; /* Orange 9 */
+    --text-error: #E5484D; /* Red 9 */
   }
 
   :root[class~="mauve"] {

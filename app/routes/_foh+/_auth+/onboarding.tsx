@@ -59,7 +59,9 @@ export default function OnboardingRoute() {
               <Label className="sr-only">Code</Label>
               <Input className="text-4xl w-40 py-8" autoFocus name="code" />
             </TextField>
-            <span>{authError?.message}</span>
+            {authError && (
+              <span className="text-error">{authError?.message}</span>
+            )}
             <Button type="submit" variant="primary">
               Anmelden
             </Button>

@@ -15,6 +15,9 @@ authenticator.use(
   new TOTPStrategy(
     {
       secret: process.env.ENCRYPTION_SECRET,
+      customErrors: {
+        invalidEmail: 'Unbekannte Email-Adresse. Wende dich an Micha.',
+      },
       sendTOTP: async ({ email, code, magicLink }) => {
         const body = await renderSentTotpEmail({ code, magicLink });
         await sendEmail({
