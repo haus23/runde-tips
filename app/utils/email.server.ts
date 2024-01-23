@@ -3,7 +3,7 @@ export async function sendEmail(props: {
   subject: string;
   body: string;
 }) {
-  const response = await fetch('https://api.useplunk.com/v1/send', {
+  return fetch('https://api.useplunk.com/v1/send', {
     method: 'POST',
     body: JSON.stringify(props),
     headers: {
@@ -11,13 +11,4 @@ export async function sendEmail(props: {
       'Content-Type': 'application/json',
     },
   });
-
-  if (response.ok) {
-    return {
-      status: 'success' as const,
-    };
-  }
-  return {
-    status: 'error' as const,
-  };
 }
