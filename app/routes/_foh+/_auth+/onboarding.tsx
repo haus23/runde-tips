@@ -1,50 +1,18 @@
-import {
-  type ActionFunctionArgs,
-  type LoaderFunctionArgs,
-  json,
-  redirect,
-} from '@remix-run/node';
-import { Form, useLoaderData } from '@remix-run/react';
+import { type LoaderFunctionArgs, json } from '@remix-run/node';
+import { Form } from '@remix-run/react';
 import { Button } from '#app/components/(ui)/button';
 import { Input } from '#app/components/(ui)/input';
 import { Label } from '#app/components/(ui)/label';
 import { TextField } from '#app/components/(ui)/textfield';
-import { authenticator } from '#app/modules/auth/auth.server';
-import { commitSession, getSession } from '#app/modules/auth/session.server';
+import { requireAnonymous } from '#app/modules/auth/auth.server';
 
 export async function loader({ request }: LoaderFunctionArgs) {
-  await authenticator.isAuthenticated(request, {
-    successRedirect: '/',
-  });
+  await requireAnonymous(request);
 
-  const session = await getSession(request.headers.get('cookie'));
-  const authEmail = session.get('auth:email');
-  const authError = session.get(authenticator.sessionErrorKey);
-  if (!authEmail) return redirect('/login');
-
-  return json(
-    { authError },
-    {
-      headers: {
-        'set-cookie': await commitSession(session),
-      },
-    },
-  );
-}
-
-export async function action({ request }: ActionFunctionArgs) {
-  const url = new URL(request.url);
-  const currentPath = url.pathname;
-
-  await authenticator.authenticate('TOTP', request, {
-    successRedirect: currentPath,
-    failureRedirect: currentPath,
-  });
+  return json(null);
 }
 
 export default function OnboardingRoute() {
-  const { authError } = useLoaderData<typeof loader>();
-
   return (
     <div className="pt-24 sm:pt-6 md:pt-16">
       <div className="sm:bg-panel max-w-2xl sm:mx-auto sm:rounded-xl sm:px-12 py-4">
@@ -59,9 +27,7 @@ export default function OnboardingRoute() {
               <Label className="sr-only">Code</Label>
               <Input className="text-4xl w-40 py-8" autoFocus name="code" />
             </TextField>
-            {authError && (
-              <span className="text-error">{authError?.message}</span>
-            )}
+            {false && <span className="text-error">Falscher Code</span>}
             <Button type="submit" variant="primary">
               Anmelden
             </Button>
