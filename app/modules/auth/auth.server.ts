@@ -1,5 +1,6 @@
 import { Authenticator } from 'remix-auth';
 import { TOTPStrategy } from 'remix-auth-totp-dev';
+import { db } from '#app/utils/db.server';
 import { sendEmail } from '#app/utils/email.server';
 import { renderSentTotpEmail } from '#emails/send-totp';
 import { authSessionStorage } from './session.server';
@@ -22,6 +23,7 @@ authenticator.use(
           body,
         });
       },
+      validateEmail,
     },
     async ({ email }) => {
       console.log('Verifying ', email);
@@ -29,3 +31,8 @@ authenticator.use(
     },
   ),
 );
+
+async function validateEmail(email: string) {
+  const user = await db.user.findUnique({ where: { email } });
+  return user !== null;
+}
