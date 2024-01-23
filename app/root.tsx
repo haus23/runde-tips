@@ -1,4 +1,9 @@
 import {
+  type LinksFunction,
+  type LoaderFunctionArgs,
+  json,
+} from '@remix-run/node';
+import {
   Links,
   LiveReload,
   Meta,
@@ -6,8 +11,6 @@ import {
   Scripts,
   ScrollRestoration,
 } from '@remix-run/react';
-
-import { LinksFunction, LoaderFunctionArgs, json } from '@remix-run/node';
 
 import { ClientHintCheck } from './modules/theme/client-hints-check';
 import { getHints } from './modules/theme/client-hints.server';
