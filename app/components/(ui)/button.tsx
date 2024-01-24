@@ -1,67 +1,43 @@
-import { type VariantProps } from 'cva';
-import { Button, type ButtonProps } from 'react-aria-components';
+import {
+  Button,
+  type ButtonProps,
+  composeRenderProps,
+} from 'react-aria-components';
+import { type VariantProps, tv } from 'tailwind-variants';
+import { focusRing } from './utils';
 
-import { cva, cx } from '#/app/utils/cva.config';
-
-const buttonVariants = cva({
-  base: [
-    'inline-flex items-center justify-center rounded-md font-semibold outline-none transition-colors',
-    // Focus
-    'focus:ring-2 focus:ring-cn focus:ring-offset-2 focus:ring-offset-app',
-    // Disabled
-    'disabled:pointer-events-none disabled:opacity-40',
-  ],
+const button = tv({
+  extend: focusRing,
+  base: 'px-5 py-2 text-sm text-center transition rounded-lg border border-black/10 dark:border-white/10 cursor-default',
   variants: {
     variant: {
-      default: 'bg-cn hover:bg-cn-hover active:bg-cn-active',
-      primary: 'bg-ca hover:bg-ca-hover active:bg-ca-active focus:ring-ca',
+      primary: 'bg-ca hover:bg-ca-hover pressed:bg-ca-active',
+      secondary: 'bg-cn hover:bg-cn-hover pressed:bg-cn-active',
       toolbar:
-        'bg-ca hover:bg-ca-hover active:bg-ca-active focus:ring-ca text-subtle hover:text-app',
-      solid:
-        'bg-slate-900 text-white hover:bg-slate-700 open:bg-slate-100 dark:bg-slate-50 dark:text-slate-900 dark:hover:bg-slate-200 dark:open:bg-slate-800',
-      destructive:
-        'bg-red-600 text-white hover:bg-red-700 dark:hover:bg-red-700',
-      outline:
-        'border border-slate-200 bg-transparent hover:bg-slate-100 focus:bg-slate-100 dark:border-slate-700 dark:text-slate-100 dark:hover:bg-slate-700 dark:focus:bg-slate-700',
-      subtle:
-        'bg-slate-100 text-slate-900 hover:bg-slate-200 focus:bg-slate-200 dark:bg-slate-700 dark:text-slate-100 dark:hover:bg-slate-700 dark:focus:bg-slate-700',
-      ghost:
-        'bg-transparent hover:bg-slate-100 focus:bg-slate-100 open:bg-transparent dark:text-slate-100 dark:hover:bg-slate-800 dark:hover:text-slate-100 dark:focus:bg-slate-800 dark:focus:text-slate-100 dark:open:bg-transparent',
-      link: 'bg-transparent text-slate-900 underline-offset-4 hover:bg-transparent hover:underline focus:bg-transparent focus:underline dark:bg-transparent dark:text-slate-100 dark:hover:bg-transparent dark:focus:bg-transparent',
+        'p-1.5 bg-ca hover:bg-ca-hover active:bg-ca-active focus:ring-ca text-subtle hover:text-app',
     },
-    size: {
-      lg: 'h-12 px-6 text-lg',
-      md: 'h-10 px-4 text-base',
-      sm: 'h-8 px-3 text-sm',
-      xs: 'h-6 px-2 text-xs',
-      toolbar: 'p-1.5',
+    isDisabled: {
+      true: 'disabled:pointer-events-none disabled:opacity-40',
     },
   },
   defaultVariants: {
-    variant: 'default',
-    size: 'md',
+    variant: 'primary',
   },
 });
 
 interface _ButtonProps
   extends ButtonProps,
-    VariantProps<typeof buttonVariants> {
-  className?: string;
-}
+    Pick<VariantProps<typeof button>, 'variant'> {}
 
-const _Button = ({ className, variant, size, ...props }: _ButtonProps) => {
+function _Button(props: _ButtonProps) {
   return (
     <Button
-      className={cx(
-        buttonVariants({
-          variant,
-          size,
-          className,
-        }),
-      )}
       {...props}
+      className={composeRenderProps(props.className, (className, renderProps) =>
+        button({ ...renderProps, variant: props.variant, className }),
+      )}
     />
   );
-};
+}
 
 export { _Button as Button };

@@ -38,6 +38,11 @@ export default {
       ca: 'var(--component-accent-border-ring)',
       cn: 'var(--component-neutral-border-ring)',
     }),
+    outlineColor: ({ theme }) => ({
+      ...theme('colors'), // Remove this line when issue #1 is done
+      ca: 'var(--component-accent-border-ring)',
+      cn: 'var(--component-neutral-border-ring)',
+    }),
     ringColor: ({ theme }) => ({
       ...theme('colors'), // Remove this line when issue #1 is done
       ca: 'var(--component-accent-border-ring)',

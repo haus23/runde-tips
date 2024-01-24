@@ -131,12 +131,27 @@
     min-width: 0;
   }
 
+  html {
+		color-scheme: light;
+	}
+	html.dark {
+		color-scheme: dark;
+	}
+
   body {
     @apply bg-[var(--app-bg)] text-[var(--app-fg)];
     min-height: 100dvh;
   }
 
-  button {
-    cursor: default;
+  @media (min-resolution: 200dpi) {
+    html {
+      font-size: 18px;
+    }
+
+    .text-sm {
+      /* ensure minimum font size of 16px */
+      font-size: 0.9rem;
+    }
   }
+
 }
