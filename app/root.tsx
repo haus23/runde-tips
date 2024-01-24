@@ -12,6 +12,7 @@ import {
   ScrollRestoration,
 } from '@remix-run/react';
 
+import { getUser } from './modules/auth/auth.server';
 import { ClientHintCheck } from './modules/theme/client-hints-check';
 import { getHints } from './modules/theme/client-hints.server';
 import { getThemeSession } from './modules/theme/session.server';
@@ -22,7 +23,10 @@ import { cx } from './utils/cva.config';
 export const links: LinksFunction = () => [{ rel: 'stylesheet', href: styles }];
 
 export async function loader({ request }: LoaderFunctionArgs) {
+  const user = await getUser(request);
+
   return json({
+    user,
     requestInfo: {
       hints: getHints(request),
       prefs: await getThemeSession(request),
