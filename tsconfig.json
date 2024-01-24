@@ -1,23 +1,30 @@
 {
   "include": ["**/*.ts", "**/*.tsx"],
   "compilerOptions": {
-    "isolatedModules": true,
-    "esModuleInterop": true,
-    "jsx": "react-jsx",
-    "resolveJsonModule": true,
-    "strict": true,
-    "allowJs": true,
-    "forceConsistentCasingInFileNames": true,
+    // Type checking
+		"strict": true,
+		"noUncheckedIndexedAccess": true,
 
-    // Module
-    "moduleResolution": "Bundler",
-    "verbatimModuleSyntax": true,
-    "paths": {
-      "#*": ["./*"]
-    },
+		// Language / Environment
+		"target": "ES2022",
+		"jsx": "react-jsx",
+		"moduleDetection": "force",
 
-    // Output
-    "target": "ES2022",
-    "noEmit": true
+		// Modules
+		"module": "ESNext",
+		"moduleResolution": "Bundler",
+		"paths": {
+			"#*": [
+				"./*"
+			]
+		},
+
+		// Interop
+		"forceConsistentCasingInFileNames": true,
+		"isolatedModules": true,
+		"verbatimModuleSyntax": true,
+
+		// Emit
+		"noEmit": true
   }
 }
