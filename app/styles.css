@@ -9,6 +9,7 @@
     --violet-teaser: #7d66d9; /* Violet 10 */
     --orange-teaser: #f76b15; /* Orange 9 */
     --text-error: #E5484D; /* Red 9 */
+    --border-error: #E5484D; /* Red 9 */
   }
 
   /* Gray colors */
@@ -53,6 +54,9 @@
     --app-fg-subtle: #65636d; /* Mauve 11 */
     --app-muted: #8E8C99; /* Mauve 9 */
 
+    --border-neutral: #dbd8e0; /* Mauve 6 */
+    --border-neutral-active: #bcbac7; /* Mauve 8 */
+
     --component-neutral-bg: #f2eff3; /* Mauve 3 */
     --component-neutral-hover: #eae7ec; /* Mauve 4 */
     --component-neutral-active: #e3dfe6; /* Mauve 5 */
@@ -67,6 +71,9 @@
     --app-fg: #eeeef0; /* Mauve 12 */
     --app-fg-subtle: #b5b2bc; /* Mauve 11 */
     --app-muted: #6F6D78; /* Mauve 9 */
+
+    --border-neutral: #3c393f; /* Mauve 6 */
+    --border-neutral-active: #625f69; /* Mauve 8 */
 
     --component-neutral-bg: #232225; /* Mauve 3 */
     --component-neutral-hover: #2b292d; /* Mauve 4 */
@@ -153,5 +160,4 @@
       font-size: 0.9rem;
     }
   }
-
 }

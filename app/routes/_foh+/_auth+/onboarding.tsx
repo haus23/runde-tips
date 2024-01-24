@@ -9,8 +9,6 @@ import {
 import { Form, useActionData } from '@remix-run/react';
 import { z } from 'zod';
 import { Button } from '#app/components/(ui)/button';
-import { Input } from '#app/components/(ui)/input';
-import { Label } from '#app/components/(ui)/label';
 import { TextField } from '#app/components/(ui)/textfield';
 import {
   createLoggedInSession,
@@ -101,19 +99,19 @@ export default function OnboardingRoute() {
             method="post"
             className="flex flex-col items-center gap-y-8"
           >
-            <TextField className="flex justify-center">
-              <Label className="sr-only">Code</Label>
-              <Input
-                className="text-4xl w-40 py-8"
-                autoFocus
-                name="code"
-                inputMode="numeric"
-                autoComplete="one-time-code"
-                required
-                defaultValue={code.defaultValue}
-              />
-            </TextField>
-            {code.error && <span className="text-error">{code.error}</span>}
+            <TextField
+              className="text-center"
+              aria-label="Code"
+              name="code"
+              inputMode="numeric"
+              autoFocus
+              autoComplete="one-time-code"
+              maxLength={6}
+              defaultValue={code.defaultValue}
+              inputClassName="text-3xl w-36 text-center mx-auto"
+              isInvalid={!!code.error}
+              errorMessage={code.error}
+            />
             <Button type="submit" variant="primary">
               Anmelden
             </Button>

@@ -2,6 +2,7 @@ import type { Config } from 'tailwindcss';
 
 export default {
   content: ['./app/**/*.{ts,tsx}'],
+  darkMode: 'class',
   theme: {
     textColor: ({ theme }) => ({
       ...theme('colors'), // Remove this line when issue #1 is done
@@ -35,6 +36,11 @@ export default {
     }),
     borderColor: ({ theme }) => ({
       ...theme('colors'), // Remove this line when issue #1 is done
+      neutral: {
+        DEFAULT: 'var(--border-neutral)',
+        active: 'var(--border-neutral-active)',
+      },
+      error: 'var(--border-error)',
       ca: 'var(--component-accent-border-ring)',
       cn: 'var(--component-neutral-border-ring)',
     }),

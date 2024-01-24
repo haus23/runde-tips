@@ -9,8 +9,6 @@ import {
 import { Form, useActionData } from '@remix-run/react';
 import { z } from 'zod';
 import { Button } from '#app/components/(ui)/button';
-import { Input } from '#app/components/(ui)/input';
-import { Label } from '#app/components/(ui)/label';
 import { TextField } from '#app/components/(ui)/textfield';
 import { isKnownEmail } from '#app/modules/api/user.server';
 import {
@@ -100,16 +98,16 @@ export default function LoginRoute() {
             method="post"
             className="flex flex-col items-center gap-y-8"
           >
-            <TextField>
-              <Label>Email</Label>
-              <Input
-                placeholder="Deine bekannte Email-Adresse"
-                name="email"
-                type="email"
-                defaultValue={email.defaultValue}
-              />
-            </TextField>
-            {email.error && <span className="text-error">{email.error}</span>}
+            <TextField
+              className="w-full"
+              label="Email"
+              name="email"
+              type="email"
+              placeholder="Deine Tipprunden Email-Adresse"
+              defaultValue={email.defaultValue}
+              isInvalid={!!email.error}
+              errorMessage={email.error}
+            />
             <Button type="submit" variant="primary">
               Code anfordern
             </Button>

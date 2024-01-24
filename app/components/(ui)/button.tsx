@@ -29,12 +29,12 @@ interface _ButtonProps
   extends ButtonProps,
     Pick<VariantProps<typeof button>, 'variant'> {}
 
-function _Button(props: _ButtonProps) {
+function _Button({ className, variant, ...props }: _ButtonProps) {
   return (
     <Button
       {...props}
-      className={composeRenderProps(props.className, (className, renderProps) =>
-        button({ ...renderProps, variant: props.variant, className }),
+      className={composeRenderProps(className, (className, renderProps) =>
+        button({ ...renderProps, variant: variant, className }),
       )}
     />
   );
