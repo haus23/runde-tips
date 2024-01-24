@@ -1,7 +1,7 @@
 import { Link, NavLink } from '@remix-run/react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { twMerge } from 'tailwind-merge';
 import { useIsAuthenticated } from '#app/utils/auth';
-import { cx } from '#app/utils/cva.config';
 import { Logo } from './logo/logo';
 import { ThemeMenu } from './theme-menu';
 
@@ -30,7 +30,7 @@ export function AppHeader() {
           {isAuthenticated ? (
             <NavLink
               className={({ isActive }) =>
-                cx(
+                twMerge(
                   'transition-colors hover:text-subtle-accent',
                   isActive && 'text-subtle-accent',
                 )
@@ -42,7 +42,7 @@ export function AppHeader() {
           ) : (
             <NavLink
               className={({ isActive }) =>
-                cx(
+                twMerge(
                   'transition-colors hover:text-subtle-accent',
                   isActive && 'text-subtle-accent',
                 )
