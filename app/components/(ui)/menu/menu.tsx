@@ -3,17 +3,17 @@ import { useHover } from 'react-aria';
 import {
   Menu,
   MenuItem,
-  MenuItemProps,
-  MenuProps,
+  type MenuItemProps,
+  type MenuProps,
   MenuTrigger,
-  MenuTriggerProps,
+  type MenuTriggerProps,
   OverlayTriggerStateContext,
   Popover,
-  PopoverProps,
+  type PopoverProps,
   Section,
-  SectionProps,
+  type SectionProps,
   Separator,
-  SeparatorProps,
+  type SeparatorProps,
 } from 'react-aria-components';
 import { cx } from '#app/utils/cva.config';
 
