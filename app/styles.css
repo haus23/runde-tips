@@ -6,6 +6,7 @@
   :root {
     --violet-teaser: #7d66d9; /* Violet 10 */
     --orange-teaser: #f76b15; /* Orange 9 */
+    --text-error: #E5484D; /* Red 9 */
   }
 
   :root[class~="mauve"] {
@@ -15,6 +16,7 @@
 
     --app-fg: #211f26; /* Mauve 12 */
     --app-fg-subtle: #65636d; /* Mauve 11 */
+    --app-muted: #8E8C99; /* Mauve 9 */
 
     --component-neutral-bg: #f2eff3; /* Mauve 3 */
     --component-neutral-hover: #eae7ec; /* Mauve 4 */
@@ -39,6 +41,7 @@
 
     --app-fg: #21201c; /* Sand 12 */
     --app-fg-subtle: #63635e; /* Sand 11 */
+    --app-muted: #8D8D86; /* Sand 9 */
 
     --component-neutral-bg: #f1f0ef; /* Sand 3 */
     --component-neutral-hover: #e9e8e6; /* Sand 4 */
@@ -63,6 +66,7 @@
 
     --app-fg: #eeeef0; /* Mauve 12 */
     --app-fg-subtle: #b5b2bc; /* Mauve 11 */
+    --app-muted: #6F6D78; /* Mauve 9 */
 
     --component-neutral-bg: #232225; /* Mauve 3 */
     --component-neutral-hover: #2b292d; /* Mauve 4 */
@@ -87,6 +91,7 @@
 
     --app-fg: #eeeeec; /* Sand 12 */
     --app-fg-subtle: #b5b3ad; /* Sand 11 */
+    --app-muted: #6F6D66; /* Sand 9 */
 
     --component-neutral-bg: #222221; /* Sand 3 */
     --component-neutral-hover: #2a2a28; /* Sand 4 */
@@ -104,7 +109,16 @@
     --component-accent-border-ring: #7e451d; /* Orange 7 */
   }
 
+  * {
+    min-width: 0;
+  }
+
   body {
     @apply bg-[var(--app-bg)] text-[var(--app-fg)];
+    min-height: 100dvh;
+  }
+
+  button {
+    cursor: default;
   }
 }

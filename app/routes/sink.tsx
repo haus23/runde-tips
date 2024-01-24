@@ -1,6 +1,6 @@
 import type { MetaFunction } from '@remix-run/node';
 import { ChevronDownIcon } from 'lucide-react';
-import { Button } from '#app/components/(ui)/button/button';
+import { Button } from '#app/components/(ui)/button';
 import { Menu, MenuContent, MenuItem } from '#app/components/(ui)/menu/menu';
 import { AppHeader } from '#app/components/header/app-header';
 

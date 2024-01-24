@@ -6,6 +6,9 @@ node_modules
 build/
 public/build/
 
+# Development data
+dev.db
+
 # Sensible data
 .env
 
