@@ -1,6 +1,59 @@
 # Changelog
 
 
+## v0.0.5
+
+[compare changes](https://github.com/haus23/runde-tips/compare/v0.0.4...v0.0.5)
+
+### 🚀 Enhancements
+
+- Create FOH layout. ([4b4a9ec](https://github.com/haus23/runde-tips/commit/4b4a9ec))
+- Add email form for auth-flow. ([4ea805a](https://github.com/haus23/runde-tips/commit/4ea805a))
+- A onboarding form route. ([e8497ce](https://github.com/haus23/runde-tips/commit/e8497ce))
+- Implement sending emails. ([77bdeca](https://github.com/haus23/runde-tips/commit/77bdeca))
+- Create email template for sending totp code. ([8f16002](https://github.com/haus23/runde-tips/commit/8f16002))
+- Implement auth flow - the good one first. ([9dba0e1](https://github.com/haus23/runde-tips/commit/9dba0e1))
+- Provide singleton prisma instance. ([b2cc33e](https://github.com/haus23/runde-tips/commit/b2cc33e))
+- Validate email address against user db. ([01f46c6](https://github.com/haus23/runde-tips/commit/01f46c6))
+- Validate email address. ([3a88506](https://github.com/haus23/runde-tips/commit/3a88506))
+- Prepare onboarding. ([46f602c](https://github.com/haus23/runde-tips/commit/46f602c))
+- Handle onboarding and log user in. ([dc2ca7a](https://github.com/haus23/runde-tips/commit/dc2ca7a))
+- Implement logout feature. ([336e748](https://github.com/haus23/runde-tips/commit/336e748))
+- Handle login via magic link. ([d5e929a](https://github.com/haus23/runde-tips/commit/d5e929a))
+
+### 🩹 Fixes
+
+- Adjust type imports. ([51b847a](https://github.com/haus23/runde-tips/commit/51b847a))
+- Import type syntax. ([cde36bc](https://github.com/haus23/runde-tips/commit/cde36bc))
+
+### 💅 Refactors
+
+- Customize error message. ([798824d](https://github.com/haus23/runde-tips/commit/798824d))
+- Restart auth flow with custom implementation. ([57fa046](https://github.com/haus23/runde-tips/commit/57fa046))
+
+### 📖 Documentation
+
+- Update workflow doc. ([e102f34](https://github.com/haus23/runde-tips/commit/e102f34))
+- Update gh workflow. ([0bf6274](https://github.com/haus23/runde-tips/commit/0bf6274))
+
+### 📦 Build
+
+- Refine tsconfig settings. ([30d1919](https://github.com/haus23/runde-tips/commit/30d1919))
+
+### 🏡 Chore
+
+- Update prisma and switch to sqlite for now. ([5e82b65](https://github.com/haus23/runde-tips/commit/5e82b65))
+- Add auth deps. ([efee4f8](https://github.com/haus23/runde-tips/commit/efee4f8))
+
+### 🤖 CI
+
+- Enforce type imports and exports. ([5bf87f0](https://github.com/haus23/runde-tips/commit/5bf87f0))
+- Update biome. And format source code. ([beda0a1](https://github.com/haus23/runde-tips/commit/beda0a1))
+
+### ❤️ Contributors
+
+- Micha Buchholz ([@lean-dev](http://github.com/lean-dev))
+
 ## v0.0.4
 
 [compare changes](https://github.com/haus23/runde-tips/compare/v0.0.3...v0.0.4)
