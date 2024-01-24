@@ -4,11 +4,16 @@ type SessionData = {
   userId: number;
 };
 
+type SessionFlashData = {
+  email: string;
+  secret: string;
+};
+
 const {
   commitSession,
   destroySession,
   getSession: getRawSession,
-} = createCookieSessionStorage<SessionData>({
+} = createCookieSessionStorage<SessionData, SessionFlashData>({
   cookie: {
     name: '__auth',
     sameSite: 'lax',

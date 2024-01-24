@@ -12,8 +12,15 @@ import { Button } from '#app/components/(ui)/button';
 import { Input } from '#app/components/(ui)/input';
 import { Label } from '#app/components/(ui)/label';
 import { TextField } from '#app/components/(ui)/textfield';
-import { requireAnonymous } from '#app/modules/auth/auth.server';
-import { db } from '#app/utils/db.server';
+import { isKnownEmail } from '#app/modules/api/user.server';
+import {
+  prepareOnboarding,
+  requireAnonymous,
+} from '#app/modules/auth/auth.server';
+import {
+  commitSession,
+  getAuthSession,
+} from '#app/modules/auth/session.server';
 
 function createSchema(constraint?: {
   isKnownEmail?: (email: string) => Promise<boolean>;
@@ -44,19 +51,28 @@ export async function action({ request }: ActionFunctionArgs) {
 
   const submission = await parse(formData, {
     async: true,
-    schema: createSchema({
-      async isKnownEmail(email) {
-        const user = await db.user.findUnique({ where: { email } });
-        return user !== null;
-      },
-    }),
+    schema: createSchema({ isKnownEmail }),
   });
 
   if (submission.intent !== 'submit' || !submission.value) {
     return json(submission);
   }
 
-  return redirect('/onboarding');
+  // Create code and send code email
+  const totpSecretUsed = await prepareOnboarding(
+    request,
+    submission.value.email,
+  );
+
+  const session = await getAuthSession(request);
+  session.flash('email', submission.value.email);
+  session.flash('secret', totpSecretUsed);
+
+  return redirect('/onboarding', {
+    headers: {
+      'Set-Cookie': await commitSession(session),
+    },
+  });
 }
 
 export default function LoginRoute() {

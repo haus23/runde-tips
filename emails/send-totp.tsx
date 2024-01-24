@@ -7,19 +7,18 @@ import {
 } from '@react-email/components';
 
 export type SendTotpEmailProps = {
+  name: string;
   code: string;
   magicLink: string;
 };
 
-export function SendTotpEmail({ code, magicLink }: SendTotpEmailProps) {
+export function SendTotpEmail({ name, code, magicLink }: SendTotpEmailProps) {
   return (
     <Html className="font-sans bg-gray-50">
       <Tailwind>
         <Container className="text-center">
           <h1>
-            <Text className="text-2xl">
-              Willkommen bei der Haus23 Tipprunde!
-            </Text>
+            <Text className="text-lg">Hallo {name}!</Text>
           </h1>
           <p>
             <Text className="text-lg">Dein Login-Code lautet:</Text>
@@ -51,8 +50,9 @@ export function SendTotpEmail({ code, magicLink }: SendTotpEmailProps) {
 }
 
 SendTotpEmail.PreviewProps = {
+  name: 'Micha',
   code: '615243',
-  magicLink: 'https://runde.tips/magic?code=123456',
+  magicLink: 'https://runde.tips/magic-link?code=123456',
 } satisfies SendTotpEmailProps;
 
 export async function renderSentTotpEmail(props: SendTotpEmailProps) {
