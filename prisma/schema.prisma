@@ -1,16 +1,11 @@
 generator client {
   provider = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
-}
-
-enum Role {
-  PLAYER
-  MANAGER
-  ADMIN
 }
 
 model User {
@@ -19,6 +14,6 @@ model User {
   name String
   slug String @unique
 
-  role Role
+  role String
   email String? @unique
 }

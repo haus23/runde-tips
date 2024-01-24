@@ -1,9 +1,9 @@
+import { invariant } from '@epic-web/invariant';
+import { type ActionFunctionArgs, json } from '@remix-run/node';
 import {
   commitSession,
   getThemeSession,
 } from '#app/modules/theme/session.server';
-import { invariant } from '@epic-web/invariant';
-import { json, type ActionFunctionArgs } from '@remix-run/node';
 
 export async function action({ request }: ActionFunctionArgs) {
   const session = await getThemeSession(request);
