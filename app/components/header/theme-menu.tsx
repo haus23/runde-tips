@@ -3,13 +3,7 @@ import { LaptopIcon, MoonIcon, SunIcon } from 'lucide-react';
 import { type Key } from 'react-aria-components';
 import { useTheme } from '#app/modules/theme/theme';
 import { Button } from '../(ui)/button';
-import {
-  Menu,
-  MenuContent,
-  MenuItem,
-  MenuSection,
-  MenuSeparator,
-} from '../(ui)/menu/menu';
+import { Menu, MenuContent, MenuItem, MenuSection } from '../(ui)/menu/menu';
 
 const colorSchemes = [
   { name: 'light', label: 'Light', icon: SunIcon },
@@ -30,9 +24,10 @@ export function ThemeMenu() {
   function handleAction(key: Key) {
     if (key === 'dark' || key === 'light' || key === 'system') {
       key !== theme.colorScheme && setTheme({ ...theme, colorScheme: key });
-    } else if (key === 'violet' || key === 'orange') {
-      key !== theme.brand && setTheme({ ...theme, brand: key });
     }
+    // else if (key === 'violet' || key === 'orange') {
+    //   key !== theme.brand && setTheme({ ...theme, brand: key });
+    // }
   }
 
   return (
@@ -56,6 +51,7 @@ export function ThemeMenu() {
             </MenuItem>
           ))}
         </MenuSection>
+        {/*
         <MenuSeparator />
         <MenuSection>
           <MenuItem id="violet" className={cx('px-2.5 gap-x-3')}>
@@ -67,6 +63,7 @@ export function ThemeMenu() {
             <span>Orange</span>
           </MenuItem>
         </MenuSection>
+        */}
       </MenuContent>
     </Menu>
   );

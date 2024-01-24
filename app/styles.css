@@ -3,13 +3,48 @@
 @tailwind utilities;
 
 @layer base {
+
+  /* Common colors */
   :root {
     --violet-teaser: #7d66d9; /* Violet 10 */
     --orange-teaser: #f76b15; /* Orange 9 */
     --text-error: #E5484D; /* Red 9 */
   }
 
-  :root[class~="mauve"] {
+  /* Gray colors */
+
+  /*
+    .mauve {
+      --mauve-1: #fdfcfd;
+      --mauve-2: #faf9fb;
+      --mauve-3: #f2eff3;
+      --mauve-4: #eae7ec;
+      --mauve-5: #e3dfe6;
+      --mauve-6: #dbd8e0;
+      --mauve-7: #d0cdd7;
+      --mauve-8: #bcbac7;
+      --mauve-9: #8e8c99;
+      --mauve-10: #84828e;
+      --mauve-11: #65636d;
+      --mauve-12: #211f26;
+    }
+    .mauveDark {
+      --mauve-1: #121113;
+      --mauve-2: #1a191b;
+      --mauve-3: #232225;
+      --mauve-4: #2b292d;
+      --mauve-5: #323035;
+      --mauve-6: #3c393f;
+      --mauve-7: #49474e;
+      --mauve-8: #625f69;
+      --mauve-9: #6f6d78;
+      --mauve-10: #7c7a85;
+      --mauve-11: #b5b2bc;
+      --mauve-12: #eeeef0;
+    }
+  */
+
+  :root {
     --app-bg: #ffffff; /* Clean white */
     --panel-bg: #faf9fb; /* Darker - Mauve 2 */
     --layout-divider: #f2eff3; /* More Dark - Mauve 3 */
@@ -24,42 +59,7 @@
     --component-neutral-border-ring: #d0cdd7; /* Mauve 7 */
   }
 
-  :root[class~="violet"] {
-    --accent-fg: #2f265f; /* Violet 12 */
-    --accent-fg-subtle: #6550b9; /* Violet 11 */
-
-    --component-accent-bg: #f4f0fe; /* Violet 3 */
-    --component-accent-hover: #ebe4ff; /* Violet 4 */
-    --component-accent-active: #e1d9ff; /* Violet 5 */
-    --component-accent-border-ring: #c2b5f5; /* Violet 7 */
-  }
-
-  :root[class~="sand"] {
-    --app-bg: #ffffff; /* Clean white */
-    --panel-bg: #f9f9f8; /* Sand 3 (More contrast to app-bg as with dark scheme */
-    --layout-divider: #dad9d6; /* Sand 6 */
-
-    --app-fg: #21201c; /* Sand 12 */
-    --app-fg-subtle: #63635e; /* Sand 11 */
-    --app-muted: #8D8D86; /* Sand 9 */
-
-    --component-neutral-bg: #f1f0ef; /* Sand 3 */
-    --component-neutral-hover: #e9e8e6; /* Sand 4 */
-    --component-neutral-active: #e2e1de; /* Sand 5 */
-    --component-neutral-border-ring: #cfceca; /* Sand 7 */
-  }
-
-  :root[class~="orange"] {
-    --accent-fg: #582d1d; /* Orange 12 */
-    --accent-fg-subtle: #cc4e00; /* Orange 11 */
-
-    --component-accent-bg: #ffefd6; /* Orange 3 */
-    --component-accent-hover: #ffdfb5; /* Orange 4 */
-    --component-accent-active: #ffd19a; /* Orange 5 */
-    --component-accent-border-ring: #f5ae73; /* Orange 7 */
-  }
-
-  :root[class~="dark"][class~="mauve"] {
+  .dark {
     --app-bg: #1a191b; /* Mauve 2 */
     --panel-bg: #121113; /* Mauve 1 - More contrast for text */
     --layout-divider: #000000; /* Clean black */
@@ -74,7 +74,50 @@
     --component-neutral-border-ring: #49474e; /* Mauve 7 */
   }
 
-  :root[class~="dark"][class~="violet"] {
+  /* Brand colors */
+
+  /*
+    .violet {
+      --violet-1: #fdfcfe;
+      --violet-2: #faf8ff;
+      --violet-3: #f4f0fe;
+      --violet-4: #ebe4ff;
+      --violet-5: #e1d9ff;
+      --violet-6: #d4cafe;
+      --violet-7: #c2b5f5;
+      --violet-8: #aa99ec;
+      --violet-9: #6e56cf;
+      --violet-10: #654dc4;
+      --violet-11: #6550b9;
+      --violet-12: #2f265f;
+    }
+    .violetDark {
+      --violet-1: #14121f;
+      --violet-2: #1b1525;
+      --violet-3: #291f43;
+      --violet-4: #33255b;
+      --violet-5: #3c2e69;
+      --violet-6: #473876;
+      --violet-7: #56468b;
+      --violet-8: #6958ad;
+      --violet-9: #6e56cf;
+      --violet-10: #7d66d9;
+      --violet-11: #baa7ff;
+      --violet-12: #e2ddfe;
+    }
+  */
+
+  :root {
+    --accent-fg: #2f265f; /* Violet 12 */
+    --accent-fg-subtle: #6550b9; /* Violet 11 */
+
+    --component-accent-bg: #f4f0fe; /* Violet 3 */
+    --component-accent-hover: #ebe4ff; /* Violet 4 */
+    --component-accent-active: #e1d9ff; /* Violet 5 */
+    --component-accent-border-ring: #c2b5f5; /* Violet 7 */
+  }
+
+  .dark {
     --accent-fg: #e2ddfe; /* Violet 12 */
     --accent-fg-subtle: #baa7ff; /* Violet 11 */
 
@@ -82,31 +125,6 @@
     --component-accent-hover: #33255b; /* Violet 4 */
     --component-accent-active: #3c2e69; /* Violet 5 */
     --component-accent-border-ring: #56468b; /* Violet 7 */
-  }
-
-  :root[class~="dark"][class~="sand"] {
-    --app-bg: #191918; /* Sand 2 */
-    --panel-bg: #111110; /* Sand 1 - More contrast for text */
-    --layout-divider: #000000; /* Clean black */
-
-    --app-fg: #eeeeec; /* Sand 12 */
-    --app-fg-subtle: #b5b3ad; /* Sand 11 */
-    --app-muted: #6F6D66; /* Sand 9 */
-
-    --component-neutral-bg: #222221; /* Sand 3 */
-    --component-neutral-hover: #2a2a28; /* Sand 4 */
-    --component-neutral-active: #31312e; /* Sand 5 */
-    --component-neutral-border-ring: #494844; /* Sand 7 */
-  }
-
-  :root[class~="dark"][class~="orange"] {
-    --accent-fg: #ffe0c2; /* Orange 12 */
-    --accent-fg-subtle: #ffa057; /* Orange 11 */
-
-    --component-accent-bg: #331e0b; /* Orange 3 */
-    --component-accent-hover: #462100; /* Orange 4 */
-    --component-accent-active: #562800; /* Orange 5 */
-    --component-accent-border-ring: #7e451d; /* Orange 7 */
   }
 
   * {

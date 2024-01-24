@@ -2,15 +2,16 @@ import { invariant } from '@epic-web/invariant';
 import { useFetcher, useRouteLoaderData } from '@remix-run/react';
 import { loader } from '#app/root';
 
-const brandNames = ['violet', 'orange'] as const;
+export const brandNames = ['default', 'violet', 'orange'] as const;
 type Brand = (typeof brandNames)[number];
 
-const colorSchemes = ['system', 'light', 'dark'] as const;
+export const colorSchemes = ['system', 'light', 'dark'] as const;
 type ColorScheme = (typeof colorSchemes)[number];
 
 const brandColors: Record<Brand, string> = {
-  violet: 'mauve violet',
-  orange: 'sand orange',
+  default: '',
+  violet: 'violet mauve',
+  orange: 'orange sand',
 } as const;
 
 export type Theme = {
@@ -25,7 +26,7 @@ export function useTheme() {
   invariant(rootLoaderData !== undefined, 'No root route data present');
 
   const theme = {
-    brand: rootLoaderData.requestInfo.prefs.data.theme?.brand || 'violet',
+    brand: rootLoaderData.requestInfo.prefs.data.theme?.brand || 'default',
     colorScheme:
       rootLoaderData.requestInfo.prefs.data.theme?.colorScheme ||
       rootLoaderData.requestInfo.hints.colorScheme,

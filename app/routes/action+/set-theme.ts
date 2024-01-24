@@ -4,6 +4,8 @@ import {
   commitSession,
   getThemeSession,
 } from '#app/modules/theme/session.server';
+import { brandNames, colorSchemes } from '#app/modules/theme/theme';
+import { includes } from '#app/utils/misc';
 
 export async function action({ request }: ActionFunctionArgs) {
   const session = await getThemeSession(request);
@@ -11,18 +13,10 @@ export async function action({ request }: ActionFunctionArgs) {
   const bodyParams = await request.formData();
 
   const brand = bodyParams.get('brand');
-  invariant(
-    brand === 'violet' || brand === 'orange',
-    'Unkwown theme brand color',
-  );
+  invariant(includes(brandNames, brand), 'Unkwown theme brand color');
 
   const colorScheme = bodyParams.get('colorScheme');
-  invariant(
-    colorScheme === 'system' ||
-      colorScheme === 'light' ||
-      colorScheme === 'dark',
-    'Unkwown colorScheme',
-  );
+  invariant(includes(colorSchemes, colorScheme), 'Unkwown colorScheme');
 
   session.set('theme', { brand, colorScheme });
 
