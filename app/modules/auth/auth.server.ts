@@ -3,7 +3,7 @@ import { sendEmail } from '#app/utils/email.server';
 import { generateLoginCode } from '#app/utils/totp.server';
 import { renderSentTotpEmail } from '#emails/send-totp';
 import { getUserByEmail } from '../api/user.server';
-import { getAuthSession } from './session.server';
+import { commitSession, getAuthSession } from './session.server';
 
 export async function requireAnonymous(request: Request) {
   const session = await getAuthSession(request);
@@ -33,4 +33,25 @@ export async function prepareOnboarding(request: Request, email: string) {
   });
 
   return secret;
+}
+
+export async function createLoggedInSession(
+  request: Request,
+  email: string,
+  redirectTo?: string,
+) {
+  const session = await getAuthSession(request);
+
+  const user = await getUserByEmail(email);
+
+  session.set('userId', user.id);
+  // Delete flash data by reading
+  session.get('secret');
+  session.get('email');
+
+  return redirect(redirectTo || '/', {
+    headers: {
+      'Set-Cookie': await commitSession(session),
+    },
+  });
 }

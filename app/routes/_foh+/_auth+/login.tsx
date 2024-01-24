@@ -42,11 +42,12 @@ function createSchema(constraint?: {
 
 export async function loader({ request }: LoaderFunctionArgs) {
   await requireAnonymous(request);
-
-  return json(null);
+  return null;
 }
 
 export async function action({ request }: ActionFunctionArgs) {
+  await requireAnonymous(request);
+
   const formData = await request.formData();
 
   const submission = await parse(formData, {
