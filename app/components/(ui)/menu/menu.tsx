@@ -1,4 +1,6 @@
-import { useContext, useRef } from 'react';
+import { Check } from 'lucide-react';
+import { useContext } from 'react';
+import { useRef } from 'react';
 import { useHover } from 'react-aria';
 import {
   Menu,
@@ -10,27 +12,24 @@ import {
   OverlayTriggerStateContext,
   Popover,
   type PopoverProps,
-  Section,
-  type SectionProps,
-  Separator,
-  type SeparatorProps,
+  composeRenderProps,
 } from 'react-aria-components';
-import { cx } from '#app/utils/cva.config';
+import { itemStyles } from '../utils';
 
-export const _Menu = (props: MenuTriggerProps) => {
+export const _MenuTrigger = (props: MenuTriggerProps) => {
   return <MenuTrigger {...props} />;
 };
 
-interface _MenuContentProps<T>
-  extends Omit<PopoverProps, 'children' | 'style' | 'className'>,
-    MenuProps<T> {
+interface _MenuProps<T> extends MenuProps<T> {
+  placement?: PopoverProps['placement'];
   autoClose?: boolean;
 }
 
-function _MenuContent<T extends object>({
+export function _Menu<T extends object>({
+  placement,
   autoClose = false,
   ...props
-}: _MenuContentProps<T>) {
+}: _MenuProps<T>) {
   const ctx = useContext(OverlayTriggerStateContext);
   const hasClosingIntent = useRef(false);
   const debounceClosing = useRef(0);
@@ -54,50 +53,37 @@ function _MenuContent<T extends object>({
 
   return (
     <Popover
-      placement="bottom end"
-      {...props}
-      className={cx(
-        'min-w-[150px] overflow-auto rounded-md bg-cn shadow outline-none',
-      )}
+      placement={placement}
+      className="min-w-[150px] rounded-md bg-cn shadow"
     >
       <div {...hoverProps}>
-        <Menu {...props} className={cx('outline-none')} />
+        <Menu
+          {...props}
+          className="p-1 outline outline-0 max-h-[inherit] overflow-auto"
+        />
       </div>
     </Popover>
   );
 }
 
-function _MenuItem({ className, ...props }: MenuItemProps) {
+export function _MenuItem(props: MenuItemProps) {
   return (
-    <MenuItem
-      className={cx(
-        'flex items-center gap-2 rounded-sm px-2 py-1.5 text-subtle outline-none transition-colors select-none',
-        'hover:bg-cn-hover hover:text-app',
-        'focus:bg-cn-hover focus:text-app',
-        className,
+    <MenuItem {...props} className={itemStyles}>
+      {composeRenderProps(
+        props.children,
+        (children, { selectionMode, isSelected }) => (
+          <>
+            <span className="flex-1 flex items-center gap-2">{children}</span>
+            {selectionMode !== 'none' && (
+              <span className="w-4 flex items-center">
+                {isSelected && <Check aria-hidden className="w-4 h-4" />}
+              </span>
+            )}
+          </>
+        ),
       )}
-      {...props}
-    />
+    </MenuItem>
   );
 }
 
-const _MenuSection = <T extends object>(props: SectionProps<T>) => {
-  return <Section {...props} />;
-};
-
-const _MenuSeparator = ({ className, ...props }: SeparatorProps) => {
-  return (
-    <Separator
-      className={cx('mx-1 my-1.5 border-t border-cn', className)}
-      {...props}
-    />
-  );
-};
-
-export {
-  _Menu as Menu,
-  _MenuContent as MenuContent,
-  _MenuItem as MenuItem,
-  _MenuSection as MenuSection,
-  _MenuSeparator as MenuSeparator,
-};
+export { _MenuTrigger as MenuTrigger, _Menu as Menu, _MenuItem as MenuItem };

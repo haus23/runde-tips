@@ -5,8 +5,8 @@ import { loader } from '#app/root';
 export const brandNames = ['default', 'violet', 'orange'] as const;
 type Brand = (typeof brandNames)[number];
 
-export const colorSchemes = ['system', 'light', 'dark'] as const;
-type ColorScheme = (typeof colorSchemes)[number];
+export const colorSchemeNames = ['system', 'light', 'dark'] as const;
+type ColorScheme = (typeof colorSchemeNames)[number];
 
 const brandColors: Record<Brand, string> = {
   default: '',

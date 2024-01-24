@@ -1,9 +1,10 @@
-import { cx } from 'cva';
 import { LaptopIcon, MoonIcon, SunIcon } from 'lucide-react';
-import { type Key } from 'react-aria-components';
-import { useTheme } from '#app/modules/theme/theme';
+import { useState } from 'react';
+import { type Key, type Selection } from 'react-aria-components';
+import { colorSchemeNames, useTheme } from '#app/modules/theme/theme';
+import { includes } from '#app/utils/misc';
 import { Button } from '../(ui)/button';
-import { Menu, MenuContent, MenuItem, MenuSection } from '../(ui)/menu/menu';
+import { Menu, MenuItem, MenuTrigger } from '../(ui)/menu/menu';
 
 const colorSchemes = [
   { name: 'light', label: 'Light', icon: SunIcon },
@@ -22,49 +23,35 @@ export function ThemeMenu() {
   const Icon = schemeIcons[theme.colorScheme];
 
   function handleAction(key: Key) {
-    if (key === 'dark' || key === 'light' || key === 'system') {
+    if (includes(colorSchemeNames, key)) {
       key !== theme.colorScheme && setTheme({ ...theme, colorScheme: key });
     }
-    // else if (key === 'violet' || key === 'orange') {
-    //   key !== theme.brand && setTheme({ ...theme, brand: key });
-    // }
   }
 
+  const [selected, setSelected] = useState<Selection>(
+    new Set([theme.colorScheme]),
+  );
+
   return (
-    <Menu>
-      <Button variant="toolbar" size="toolbar">
+    <MenuTrigger>
+      <Button variant="toolbar">
         <Icon className="h-5" />
       </Button>
-      <MenuContent onAction={handleAction} autoClose>
-        <MenuSection>
-          {colorSchemes.map((t) => (
-            <MenuItem
-              key={t.name}
-              id={t.name}
-              className={cx(
-                theme.colorScheme === t.name &&
-                  'text-subtle-accent hover:text-app-accent focus:text-app-accent',
-              )}
-            >
-              <t.icon className="h-5" />
-              <span>{t.label}</span>
-            </MenuItem>
-          ))}
-        </MenuSection>
-        {/*
-        <MenuSeparator />
-        <MenuSection>
-          <MenuItem id="violet" className={cx('px-2.5 gap-x-3')}>
-            <span className="size-5 rounded-full bg-teaser-violet" />
-            <span>Violett</span>
+      <Menu
+        autoClose
+        placement="bottom end"
+        selectionMode="single"
+        selectedKeys={selected}
+        onAction={handleAction}
+        onSelectionChange={setSelected}
+      >
+        {colorSchemes.map((t) => (
+          <MenuItem key={t.name} id={t.name}>
+            <t.icon className="h-5" />
+            <span>{t.label}</span>
           </MenuItem>
-          <MenuItem id="orange" className={cx('px-2.5 gap-x-3')}>
-            <span className="size-5 rounded-full bg-teaser-orange" />
-            <span>Orange</span>
-          </MenuItem>
-        </MenuSection>
-        */}
-      </MenuContent>
-    </Menu>
+        ))}
+      </Menu>
+    </MenuTrigger>
   );
 }
