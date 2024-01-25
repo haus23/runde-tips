@@ -15,6 +15,11 @@ async function getUserIdFromSession(request: Request) {
   return session.get('userId') ?? null;
 }
 
+export async function getUser(request: Request) {
+  const userId = await getUserIdFromSession(request);
+  return userId ? await getUserById(userId) : null;
+}
+
 export async function requireAnonymous(request: Request) {
   const userId = await getUserIdFromSession(request);
   if (userId) {
@@ -22,9 +27,11 @@ export async function requireAnonymous(request: Request) {
   }
 }
 
-export async function getUser(request: Request) {
-  const userId = await getUserIdFromSession(request);
-  return userId ? await getUserById(userId) : null;
+export async function requireAdmin(request: Request) {
+  const user = await getUser(request);
+  if (!user?.role.includes('ADMIN')) {
+    throw redirect('/');
+  }
 }
 
 export async function prepareOnboarding(request: Request, email: string) {
