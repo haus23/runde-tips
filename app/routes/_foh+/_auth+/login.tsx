@@ -6,7 +6,7 @@ import {
   json,
   redirect,
 } from '@remix-run/node';
-import { Form, useActionData } from '@remix-run/react';
+import { Form, useActionData, useLoaderData } from '@remix-run/react';
 import { z } from 'zod';
 import { Button } from '#app/components/(ui)/button';
 import { TextField } from '#app/components/(ui)/textfield';
@@ -40,7 +40,20 @@ function createSchema(constraint?: {
 
 export async function loader({ request }: LoaderFunctionArgs) {
   await requireAnonymous(request);
-  return null;
+
+  // If revisiting login page, reuse email but destroy old secret (and code ...)
+  const session = await getAuthSession(request);
+  const email = session.get('email');
+  const secret = session.get('secret');
+
+  return json(
+    { email },
+    {
+      headers: {
+        'Set-Cookie': await commitSession(session),
+      },
+    },
+  );
 }
 
 export async function action({ request }: ActionFunctionArgs) {
@@ -75,9 +88,11 @@ export async function action({ request }: ActionFunctionArgs) {
 }
 
 export default function LoginRoute() {
+  const { email: lastEmail } = useLoaderData<typeof loader>();
   const lastSubmission = useActionData<typeof action>();
 
   const [form, { email }] = useForm({
+    defaultValue: { email: lastEmail },
     lastSubmission,
     onValidate({ formData }) {
       return parse(formData, { schema: createSchema() });
