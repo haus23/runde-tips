@@ -1,7 +1,7 @@
 {
   "name": "runde-tips",
   "license": "MIT",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "repository": {
     "type": "git",
     "url": "https://github.com/haus23/runde-tips.git"
@@ -26,6 +26,7 @@
     "@epic-web/invariant": "^1.0.0",
     "@epic-web/remember": "^1.0.2",
     "@epic-web/totp": "^1.1.1",
+    "@fontsource-variable/inter": "^5.0.16",
     "@prisma/client": "^5.8.1",
     "@react-email/components": "0.0.14",
     "@remix-run/node": "^2.5.1",

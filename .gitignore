@@ -1,10 +1,8 @@
 # NPM deps
 node_modules
 
-# Remix cache/build
-.cache/
+# Remix build
 build/
-public/build/
 
 # Development data
 dev.db
