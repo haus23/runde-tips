@@ -1,6 +1,41 @@
 # Changelog
 
 
+## v0.0.6
+
+[compare changes](https://github.com/haus23/runde-tips/compare/v0.0.5...v0.0.6)
+
+### 🚀 Enhancements
+
+- Add textfield components. ([59ae6f4](https://github.com/haus23/runde-tips/commit/59ae6f4))
+- Add link components. Resolves #1, resolves #3, resolves #13 ([#1](https://github.com/haus23/runde-tips/issues/1), [#3](https://github.com/haus23/runde-tips/issues/3), [#13](https://github.com/haus23/runde-tips/issues/13))
+- Implement auth state broadcasting. See #15 ([#15](https://github.com/haus23/runde-tips/issues/15))
+- Reuse mail but invalidate old code if revisiting login page. ([a2ac09e](https://github.com/haus23/runde-tips/commit/a2ac09e))
+
+### 🩹 Fixes
+
+- Type imports. ([98260b7](https://github.com/haus23/runde-tips/commit/98260b7))
+
+### 💅 Refactors
+
+- Simplify theme by now. No brand color switching. ([545e47a](https://github.com/haus23/runde-tips/commit/545e47a))
+- Adapt design system from react aria starter. See issue #1, issue #3, issue #13 and issue #14. ([#1](https://github.com/haus23/runde-tips/issues/1), [#3](https://github.com/haus23/runde-tips/issues/3), [#13](https://github.com/haus23/runde-tips/issues/13), [#14](https://github.com/haus23/runde-tips/issues/14))
+- Rebuild the menu component. ([25f8133](https://github.com/haus23/runde-tips/commit/25f8133))
+- Drop cva. Resolves #14 ([#14](https://github.com/haus23/runde-tips/issues/14))
+- Simplify auth flow. Won't fix and closes #15 ([#15](https://github.com/haus23/runde-tips/issues/15))
+
+### 🏡 Chore
+
+- Update deps. ([3cdbf77](https://github.com/haus23/runde-tips/commit/3cdbf77))
+
+### 🤖 CI
+
+- Update biome. ([0a4340f](https://github.com/haus23/runde-tips/commit/0a4340f))
+
+### ❤️ Contributors
+
+- Micha Buchholz ([@lean-dev](http://github.com/lean-dev))
+
 ## v0.0.5
 
 [compare changes](https://github.com/haus23/runde-tips/compare/v0.0.4...v0.0.5)
