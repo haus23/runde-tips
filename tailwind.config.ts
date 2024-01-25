@@ -1,4 +1,5 @@
-import type { Config } from 'tailwindcss';
+import { type Config } from 'tailwindcss';
+import defaultTheme from 'tailwindcss/defaultTheme';
 
 export default {
   content: ['./app/**/*.{ts,tsx}'],
@@ -59,7 +60,12 @@ export default {
       ...theme('colors'), // Remove this line when issue #1 is done
       app: 'var(--app-bg)',
     }),
-    extend: {}, // Remove unnecessary default colors
+    extend: {
+      // Remove unnecessary default colors
+      fontFamily: {
+        sans: ['Inter Variable', ...defaultTheme.fontFamily.sans],
+      },
+    },
   },
   plugins: [
     require('tailwindcss-animate'),
