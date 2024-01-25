@@ -1,6 +1,6 @@
 import { invariant } from '@epic-web/invariant';
 import { useFetcher, useRouteLoaderData } from '@remix-run/react';
-import { loader } from '#app/root';
+import { type loader } from '#app/root';
 
 export const brandNames = ['default', 'violet', 'orange'] as const;
 type Brand = (typeof brandNames)[number];
