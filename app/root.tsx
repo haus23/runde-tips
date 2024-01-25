@@ -19,7 +19,6 @@ import { getHints } from './modules/theme/client-hints.server';
 import { getThemeSession } from './modules/theme/session.server';
 import { useTheme } from './modules/theme/theme';
 import styles from './styles.css';
-import { AuthReload } from './utils/auth';
 
 export const links: LinksFunction = () => [{ rel: 'stylesheet', href: styles }];
 
@@ -51,7 +50,6 @@ export default function App() {
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
-        <AuthReload />
       </body>
     </html>
   );

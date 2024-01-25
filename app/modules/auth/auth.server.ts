@@ -27,19 +27,12 @@ export async function getUser(request: Request) {
   return userId ? await getUserById(userId) : null;
 }
 
-function createMagicLink(request: Request, code: string) {
-  const url = new URL('/magic-link', new URL(request.url).origin);
-  url.searchParams.set('code', code);
-  return url.toString();
-}
-
 export async function prepareOnboarding(request: Request, email: string) {
   const user = await getUserByEmail(email);
   const { code, secret } = generateLoginCode();
-  const magicLink = createMagicLink(request, code);
 
   // Create and send email
-  const body = await renderSentTotpEmail({ name: user.name, code, magicLink });
+  const body = await renderSentTotpEmail({ name: user.name, code });
   await sendEmail({
     to: email,
     subject: 'Tipprunde Login Code',

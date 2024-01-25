@@ -9,10 +9,9 @@ import {
 export type SendTotpEmailProps = {
   name: string;
   code: string;
-  magicLink: string;
 };
 
-export function SendTotpEmail({ name, code, magicLink }: SendTotpEmailProps) {
+export function SendTotpEmail({ name, code }: SendTotpEmailProps) {
   return (
     <Html className="font-sans bg-gray-50">
       <Tailwind>
@@ -27,20 +26,9 @@ export function SendTotpEmail({ name, code, magicLink }: SendTotpEmailProps) {
             <Text className="text-3xl tracking-wider">{code}</Text>
           </p>
           <p>
-            <Text className="text-lg">
-              Du kannst dich auch mit folgendem Link einloggen:
-            </Text>
-          </p>
-          <p>
-            <Text className="text-lg">
-              <a href={magicLink}>{magicLink}</a>
-            </Text>
-          </p>
-          <p>
             <Text>
-              (Code und Link sind für genau fünf Minuten gültig und
-              funktionieren nur in dem Browser, in dem du die Anmeldung
-              gestartet hast.)
+              (Der Code und ist genau fünf Minuten gültig und funktioniert nur
+              in dem Browser, in dem du die Anmeldung gestartet hast.)
             </Text>
           </p>
         </Container>
@@ -52,7 +40,6 @@ export function SendTotpEmail({ name, code, magicLink }: SendTotpEmailProps) {
 SendTotpEmail.PreviewProps = {
   name: 'Micha',
   code: '615243',
-  magicLink: 'https://runde.tips/magic-link?code=123456',
 } satisfies SendTotpEmailProps;
 
 export async function renderSentTotpEmail(props: SendTotpEmailProps) {
