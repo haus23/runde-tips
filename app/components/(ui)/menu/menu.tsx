@@ -14,6 +14,7 @@ import {
   type PopoverProps,
   composeRenderProps,
 } from 'react-aria-components';
+import { twMerge } from 'tailwind-merge';
 import { itemStyles } from '../utils';
 
 export const _MenuTrigger = (props: MenuTriggerProps) => {
@@ -66,11 +67,16 @@ export function _Menu<T extends object>({
   );
 }
 
-export function _MenuItem(props: MenuItemProps) {
+export function _MenuItem({ children, className, ...props }: MenuItemProps) {
   return (
-    <MenuItem {...props} className={itemStyles}>
+    <MenuItem
+      {...props}
+      className={composeRenderProps(className, (className, renderProps) =>
+        itemStyles({ ...renderProps, className }),
+      )}
+    >
       {composeRenderProps(
-        props.children,
+        children,
         (children, { selectionMode, isSelected }) => (
           <>
             <span className="flex-1 flex items-center gap-2">{children}</span>

@@ -4,6 +4,7 @@ import { useIsAuthenticated } from '#app/utils/auth';
 import { Link, NavLink } from '../(ui)/link';
 import { Logo } from './logo/logo';
 import { ThemeMenu } from './theme-menu';
+import { UserMenu } from './user-menu';
 
 export function AppHeader() {
   const { scrollY } = useScroll();
@@ -22,17 +23,14 @@ export function AppHeader() {
         <Logo />
       </Link>
       <div className="flex items-center h-12 gap-x-2">
-        <div>
-          <ThemeMenu />
-        </div>
-        <div className="flex items-center">
-          <span className="border border-cn h-10 mx-2" />
-          {isAuthenticated ? (
-            <NavLink to="/logout">Log Out</NavLink>
-          ) : (
+        <ThemeMenu />
+        {isAuthenticated && <UserMenu />}
+        {!isAuthenticated && (
+          <div className="flex items-center">
+            <span className="border border-cn h-10 mx-2" />
             <NavLink to="/login">Log In</NavLink>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </motion.header>
   );
