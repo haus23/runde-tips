@@ -15,12 +15,11 @@ const colorSchemes = [
 const schemeIcons = {
   light: SunIcon,
   dark: MoonIcon,
-  system: LaptopIcon,
 };
 
 export function ThemeMenu() {
-  const { theme, setTheme } = useTheme();
-  const Icon = schemeIcons[theme.colorScheme];
+  const { theme, setTheme, colorScheme } = useTheme();
+  const Icon = schemeIcons[colorScheme];
 
   function handleAction(key: Key) {
     if (includes(colorSchemeNames, key)) {
