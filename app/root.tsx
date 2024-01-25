@@ -6,6 +6,7 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useNavigate,
 } from '@remix-run/react';
 
 import { twMerge } from 'tailwind-merge';
@@ -16,6 +17,7 @@ import { getThemeSession } from './modules/theme/session.server';
 import { useTheme } from './modules/theme/theme';
 
 import '@fontsource-variable/inter';
+import { RouterProvider } from 'react-aria';
 import './styles.css';
 
 export async function loader({ request }: LoaderFunctionArgs) {
@@ -31,7 +33,9 @@ export async function loader({ request }: LoaderFunctionArgs) {
 }
 
 export default function App() {
+  const navigate = useNavigate();
   const { colorScheme, brandColors } = useTheme();
+
   return (
     <html lang="de" className={twMerge(colorScheme, brandColors)}>
       <head>
@@ -42,7 +46,9 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Outlet />
+        <RouterProvider navigate={navigate}>
+          <Outlet />
+        </RouterProvider>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
