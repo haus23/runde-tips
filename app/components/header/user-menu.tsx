@@ -10,7 +10,7 @@ export function UserMenu() {
     <MenuTrigger>
       <Button variant="toolbar">
         <UserIcon className="h-5" />
-        <Menu autoClose placement="bottom end">
+        <Menu autoClose placement="bottom">
           {user.role.includes('ADMIN') && (
             <MenuItem className="cursor-pointer" href="/manager">
               Manager

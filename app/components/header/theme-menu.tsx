@@ -38,7 +38,7 @@ export function ThemeMenu() {
       </Button>
       <Menu
         autoClose
-        placement="bottom end"
+        placement="bottom"
         selectionMode="single"
         selectedKeys={selected}
         onAction={handleAction}

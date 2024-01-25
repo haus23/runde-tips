@@ -9,6 +9,7 @@ import {
   type MenuProps,
   MenuTrigger,
   type MenuTriggerProps,
+  OverlayArrow,
   OverlayTriggerStateContext,
   Popover,
   type PopoverProps,
@@ -55,8 +56,23 @@ export function _Menu<T extends object>({
   return (
     <Popover
       placement={placement}
-      className="min-w-[150px] rounded-md bg-cn shadow"
+      className="min-w-[150px] rounded-md bg-cn shadow mt-2"
     >
+      <OverlayArrow className="translate-y-2">
+        <svg
+          className="translate-y-[3px]"
+          role="img"
+          aria-label="Menüpfeil"
+          width={16}
+          height={12}
+          viewBox="0 0 16 12"
+        >
+          <path
+            className="stroke-[var(--component-neutral-bg)] fill-[var(--component-neutral-bg)]"
+            d="M0 9 L8 0 L16 9"
+          />
+        </svg>
+      </OverlayArrow>
       <div {...hoverProps}>
         <Menu
           {...props}
