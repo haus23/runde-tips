@@ -1,6 +1,40 @@
 # Changelog
 
 
+## v0.0.7
+
+[compare changes](https://github.com/haus23/runde-tips/compare/v0.0.6...v0.0.7)
+
+### 🚀 Enhancements
+
+- Create manager dashboard route. ([138f56a](https://github.com/haus23/runde-tips/commit/138f56a))
+- Create minimal admin layout. ([3e4b79c](https://github.com/haus23/runde-tips/commit/3e4b79c))
+- Secure manager area. ([7358220](https://github.com/haus23/runde-tips/commit/7358220))
+- Add user menu for authenticated users. ([68f8080](https://github.com/haus23/runde-tips/commit/68f8080))
+- Start adding more header content. ([2541663](https://github.com/haus23/runde-tips/commit/2541663))
+
+### 🩹 Fixes
+
+- Keep border - but transparent. ([bcd519b](https://github.com/haus23/runde-tips/commit/bcd519b))
+- Prevent inlinening of assets in dataUrls. ([089567b](https://github.com/haus23/runde-tips/commit/089567b))
+
+### 💅 Refactors
+
+- Display effective colorscheme icon. ([95053ee](https://github.com/haus23/runde-tips/commit/95053ee))
+- Refine menu styling. ([b39868d](https://github.com/haus23/runde-tips/commit/b39868d))
+
+### 📦 Build
+
+- Switch to vite and remix plugin. ([5242ef7](https://github.com/haus23/runde-tips/commit/5242ef7))
+
+### 🏡 Chore
+
+- Simplify gitignore paths. ([5fc2edf](https://github.com/haus23/runde-tips/commit/5fc2edf))
+
+### ❤️ Contributors
+
+- Micha Buchholz ([@lean-dev](http://github.com/lean-dev))
+
 ## v0.0.6
 
 [compare changes](https://github.com/haus23/runde-tips/compare/v0.0.5...v0.0.6)
