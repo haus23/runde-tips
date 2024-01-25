@@ -28,6 +28,7 @@ export default {
         DEFAULT: 'var(--component-accent-bg)',
         hover: 'var(--component-accent-hover)',
         active: 'var(--component-accent-active)',
+        solid: 'var(--component-solid-accent-bg)',
       },
       teaser: {
         violet: 'var(--violet-teaser)',

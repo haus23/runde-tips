@@ -2,6 +2,8 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { twMerge } from 'tailwind-merge';
 import { useIsAuthenticated } from '#app/utils/auth';
 import { Link, NavLink } from '../(ui)/link';
+import { ChatButton } from '../chat/chat-button';
+import { ChampionshipSelect } from './championship-select';
 import { Logo } from './logo/logo';
 import { ThemeMenu } from './theme-menu';
 import { UserMenu } from './user-menu';
@@ -23,8 +25,10 @@ export function AppHeader() {
         <Logo />
       </Link>
       <div className="flex items-center h-12 gap-x-2">
+        <ChampionshipSelect />
         <ThemeMenu />
         {isAuthenticated && <UserMenu />}
+        <ChatButton />
         {!isAuthenticated && (
           <div className="flex items-center">
             <span className="border border-cn h-10 mx-2" />

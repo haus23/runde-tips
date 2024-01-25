@@ -122,6 +122,8 @@
     --component-accent-hover: #ebe4ff; /* Violet 4 */
     --component-accent-active: #e1d9ff; /* Violet 5 */
     --component-accent-border-ring: #c2b5f5; /* Violet 7 */
+
+    --component-solid-accent-bg: #6E56CF; /* Violet 9 - same as dark */
   }
 
   .dark {
