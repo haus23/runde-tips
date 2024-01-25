@@ -1,6 +1,6 @@
 import type { LoaderFunctionArgs } from '@remix-run/node';
 import { Outlet } from '@remix-run/react';
-import { Link } from '#app/components/(ui)/link';
+import { Link, NavLink } from '#app/components/(ui)/link';
 import { Logo } from '#app/components/header/logo/logo';
 import { requireAdmin } from '#app/modules/auth/auth.server';
 
@@ -20,6 +20,9 @@ export default function ManagerLayout() {
               <Logo />
             </Link>
           </div>
+          <nav className="flex flex-col">
+            <NavLink to="/manager/sync">Datenabgleich</NavLink>
+          </nav>
         </div>
       </div>
       <div className="flex flex-col md:pl-64">
