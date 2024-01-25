@@ -18,7 +18,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
   const session = await getAuthSession(request);
   const secret = session.get('secret');
   const email = session.get('email');
-  console.log(email, secret);
+
   if (!email || !secret) {
     return redirect('/login');
   }
