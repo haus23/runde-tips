@@ -4,6 +4,7 @@
     // Type checking
 		"strict": true,
 		"noUncheckedIndexedAccess": true,
+    "skipLibCheck": true,
 
 		// Language / Environment
 		"target": "ES2022",
