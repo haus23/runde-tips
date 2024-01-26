@@ -28,8 +28,7 @@ export function useTheme() {
   const theme = {
     brand: rootLoaderData.requestInfo.prefs.data.theme?.brand || 'default',
     colorScheme:
-      rootLoaderData.requestInfo.prefs.data.theme?.colorScheme ||
-      rootLoaderData.requestInfo.hints.colorScheme,
+      rootLoaderData.requestInfo.prefs.data.theme?.colorScheme || 'system',
   } satisfies Theme;
 
   function setTheme(theme: Theme) {
