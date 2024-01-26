@@ -1,6 +1,45 @@
 # Changelog
 
 
+## v0.0.8
+
+[compare changes](https://github.com/haus23/runde-tips/compare/v0.0.7...v0.0.8)
+
+### 🚀 Enhancements
+
+- Use inter font. ([9e18653](https://github.com/haus23/runde-tips/commit/9e18653))
+- Sketch a proof of concept - syncing accounts. ([03a2aae](https://github.com/haus23/runde-tips/commit/03a2aae))
+- Add a seed accounts script. ([7f0976d](https://github.com/haus23/runde-tips/commit/7f0976d))
+- Add leagues model. ([1efe0b2](https://github.com/haus23/runde-tips/commit/1efe0b2))
+- Add teams model ([f2bec7f](https://github.com/haus23/runde-tips/commit/f2bec7f))
+- Add rulesets model. ([b55235e](https://github.com/haus23/runde-tips/commit/b55235e))
+- Add championship model. ([73e0761](https://github.com/haus23/runde-tips/commit/73e0761))
+- Add round model. ([4227c23](https://github.com/haus23/runde-tips/commit/4227c23))
+- Add match model. ([1058185](https://github.com/haus23/runde-tips/commit/1058185))
+- Add player model. ([8ba16ad](https://github.com/haus23/runde-tips/commit/8ba16ad))
+- Add tip model. ([c0e13fa](https://github.com/haus23/runde-tips/commit/c0e13fa))
+- Implement sync for already completed championships. ([f82692e](https://github.com/haus23/runde-tips/commit/f82692e))
+
+### 🩹 Fixes
+
+- Add routerprovider for client-side routing with aria components. Resolves #20 ([#20](https://github.com/haus23/runde-tips/issues/20))
+- Syncing accounts, not just adding. Resolves #21 ([#21](https://github.com/haus23/runde-tips/issues/21))
+- With no user prefs cookie, set colorScheme to default. Resolves #24 ([#24](https://github.com/haus23/runde-tips/issues/24))
+- Remove accidently added fb id column. ([52d18bb](https://github.com/haus23/runde-tips/commit/52d18bb))
+- Remove the break after first synced championship. ([0632623](https://github.com/haus23/runde-tips/commit/0632623))
+
+### 💅 Refactors
+
+- Squashing migrations. ([977fccc](https://github.com/haus23/runde-tips/commit/977fccc))
+
+### 🏡 Chore
+
+- Ignore sqlite journals. ([842053c](https://github.com/haus23/runde-tips/commit/842053c))
+
+### ❤️ Contributors
+
+- Micha Buchholz ([@lean-dev](http://github.com/lean-dev))
+
 ## v0.0.7
 
 [compare changes](https://github.com/haus23/runde-tips/compare/v0.0.6...v0.0.7)
