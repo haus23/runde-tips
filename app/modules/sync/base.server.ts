@@ -1,1 +1,1 @@
-export const legacyBaseUrl = 'https://backend.runde.tips/api/v1/';
+export const legacyBaseUrl = 'https://backend.runde.tips/api/v1';
