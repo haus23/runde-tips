@@ -37,6 +37,7 @@ model Championship {
 
   rounds  Round[]
   matches Match[]
+  players Player[]
 }
 
 model User {
@@ -46,6 +47,8 @@ model User {
   name  String
   role  String
   email String? @unique
+
+  appearances Player[]
 }
 
 model League {
@@ -102,4 +105,20 @@ model Match {
   hometeam       Team?        @relation("hometeam", fields: [hometeamId], references: [id])
   awayteamId     Int?
   awayteam       Team?        @relation("awayteam", fields: [awayteamId], references: [id])
+}
+
+model Player {
+  id   Int    @id @default(autoincrement())
+  fbId String @unique
+
+  points      Int     @default(0)
+  extraPoints Decimal @default(0)
+  totalPoints Decimal @default(0)
+  rank        Int     @default(0)
+
+  championshipId Int
+  championship   Championship @relation(fields: [championshipId], references: [id])
+
+  userId Int
+  user   User @relation(fields: [userId], references: [id])
 }
