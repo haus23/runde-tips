@@ -4,6 +4,7 @@ import { namedAction } from 'remix-utils/named-action';
 import { Button } from '#app/components/(ui)/button';
 import { syncAccounts } from '#app/modules/sync/accounts.server';
 import { syncLeagues } from '#app/modules/sync/leagues.server';
+import { syncRulesets } from '#app/modules/sync/rulesets.server';
 import { syncTeams } from '#app/modules/sync/teams.server';
 
 export async function action({ request }: ActionFunctionArgs) {
@@ -20,6 +21,10 @@ export async function action({ request }: ActionFunctionArgs) {
     },
     async teams() {
       await syncTeams();
+      return json(null);
+    },
+    async rulesets() {
+      await syncRulesets();
       return json(null);
     },
   });
@@ -49,6 +54,14 @@ export default function SyncRoute() {
           </Button>
           <Button type="submit" variant="secondary" name="intent" value="teams">
             Teams
+          </Button>
+          <Button
+            type="submit"
+            variant="secondary"
+            name="intent"
+            value="rulesets"
+          >
+            Regelwerke
           </Button>
         </Form>
       </div>

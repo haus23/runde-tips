@@ -8,6 +8,18 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Ruleset {
+  id   Int    @id @default(autoincrement())
+  slug String @unique
+
+  name                String
+  description         String
+  extraQuestionRuleId String
+  matchRuleId         String
+  roundRuleId         String
+  tipRuleId           String
+}
+
 model User {
   id    Int @id @default(autoincrement())
 
