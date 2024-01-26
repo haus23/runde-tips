@@ -35,7 +35,8 @@ model Championship {
   rulesetId Int
   ruleset   Ruleset @relation(fields: [rulesetId], references: [id])
 
-  rounds Round[]
+  rounds  Round[]
+  matches Match[]
 }
 
 model User {
@@ -53,6 +54,8 @@ model League {
 
   name      String
   shortname String
+
+  matches Match[]
 }
 
 model Team {
@@ -61,6 +64,9 @@ model Team {
 
   name      String
   shortname String
+
+  homematches Match[] @relation("hometeam")
+  awaymatches Match[] @relation("awayteam")
 }
 
 model Round {
@@ -74,4 +80,26 @@ model Round {
 
   championshipId Int
   championship   Championship @relation(fields: [championshipId], references: [id])
+
+  matches Match[]
+}
+
+model Match {
+  id Int @id @default(autoincrement())
+
+  nr     Int
+  date   String?
+  result String  @default("")
+  points Int     @default(0)
+
+  championshipId Int
+  championship   Championship @relation(fields: [championshipId], references: [id])
+  roundId        Int
+  round          Round        @relation(fields: [roundId], references: [id])
+  leagueId       Int?
+  league         League?      @relation(fields: [leagueId], references: [id])
+  hometeamId     Int?
+  hometeam       Team?        @relation("hometeam", fields: [hometeamId], references: [id])
+  awayteamId     Int?
+  awayteam       Team?        @relation("awayteam", fields: [awayteamId], references: [id])
 }
