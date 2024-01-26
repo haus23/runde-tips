@@ -25,3 +25,11 @@ model League {
   name      String
   shortname String
 }
+
+model Team {
+  id   Int    @id @default(autoincrement())
+  slug String @unique
+
+  name      String
+  shortname String
+}
