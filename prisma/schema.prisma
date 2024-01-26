@@ -1,5 +1,5 @@
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
   previewFeatures = ["driverAdapters"]
 }
 
@@ -19,7 +19,7 @@ model Ruleset {
   roundRuleId         String
   tipRuleId           String
 
-  championships       Championship[]
+  championships Championship[]
 }
 
 model Championship {
@@ -31,18 +31,19 @@ model Championship {
   published            Boolean @default(false)
   completed            Boolean @default(false)
   extraPointsPublished Boolean @default(false)
-  rulesetId            Int
 
-  ruleset              Ruleset @relation(fields: [rulesetId], references: [id])
+  rulesetId Int
+  ruleset   Ruleset @relation(fields: [rulesetId], references: [id])
+
+  rounds Round[]
 }
 
 model User {
-  id    Int @id @default(autoincrement())
-
-  name String
+  id   Int    @id @default(autoincrement())
   slug String @unique
 
-  role String
+  name  String
+  role  String
   email String? @unique
 }
 
@@ -60,4 +61,17 @@ model Team {
 
   name      String
   shortname String
+}
+
+model Round {
+  id Int @id @default(autoincrement())
+
+  nr            Int
+  isDoubleRound Boolean @default(false)
+  published     Boolean @default(false)
+  tipsPublished Boolean @default(false)
+  completed     Boolean @default(false)
+
+  championshipId Int
+  championship   Championship @relation(fields: [championshipId], references: [id])
 }
