@@ -3,6 +3,7 @@ import { Form, json } from '@remix-run/react';
 import { namedAction } from 'remix-utils/named-action';
 import { Button } from '#app/components/(ui)/button';
 import { syncAccounts } from '#app/modules/sync/accounts.server';
+import { syncChampionships } from '#app/modules/sync/championships';
 import { syncLeagues } from '#app/modules/sync/leagues.server';
 import { syncRulesets } from '#app/modules/sync/rulesets.server';
 import { syncTeams } from '#app/modules/sync/teams.server';
@@ -27,6 +28,10 @@ export async function action({ request }: ActionFunctionArgs) {
       await syncRulesets();
       return json(null);
     },
+    async championships() {
+      await syncChampionships();
+      return json(null);
+    },
   });
 }
 
@@ -36,6 +41,14 @@ export default function SyncRoute() {
       <h2 className="text-2xl font-semibold">Datenabgleich</h2>
       <div className="mt-4">
         <Form method="post" className="flex flex-wrap gap-4">
+          <Button
+            type="submit"
+            variant="primary"
+            name="intent"
+            value="championships"
+          >
+            Turniere
+          </Button>
           <Button
             type="submit"
             variant="secondary"
