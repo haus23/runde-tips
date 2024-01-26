@@ -10,8 +10,6 @@ export async function syncChampionships() {
   const championships = await db.championship.findMany();
   const rulesets = await db.ruleset.findMany();
 
-  let x = 0;
-
   for (const fbCampionship of fbChampionships) {
     const championship = championships.find((c) => c.slug === fbCampionship.id);
 
@@ -51,10 +49,6 @@ export async function syncChampionships() {
 
       default:
         break;
-    }
-
-    if (x++) {
-      break;
     }
   }
 }
