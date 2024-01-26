@@ -17,3 +17,11 @@ model User {
   role String
   email String? @unique
 }
+
+model League {
+  id   Int    @id @default(autoincrement())
+  slug String @unique
+
+  name      String
+  shortname String
+}
