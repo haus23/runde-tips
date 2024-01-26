@@ -108,8 +108,7 @@ model Match {
 }
 
 model Player {
-  id   Int    @id @default(autoincrement())
-  fbId String @unique
+  id Int @id @default(autoincrement())
 
   points      Int     @default(0)
   extraPoints Decimal @default(0)
