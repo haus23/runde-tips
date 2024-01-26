@@ -1,5 +1,4 @@
 import { invariant } from '@epic-web/invariant';
-import { m } from 'framer-motion';
 import { db } from '#app/utils/db.server';
 import { legacyBaseUrl } from './base.server';
 
@@ -46,7 +45,17 @@ export async function syncChampionships() {
       case 'simple-insert':
         await simpleInsert(fbCampionship, rulesetId);
         break;
-
+      case 'prepare-sync':
+        await prepareSync(fbCampionship, rulesetId);
+        break;
+      case 'sync':
+        // Achtung: neue tipps können da sein und alte!
+        // Kann nicht noch mehr neu sein?
+        // gilt auch für final-sync
+        throw new Error('Not implemented');
+      case 'final-sync':
+        // Löschen der Mappings
+        throw new Error('Not implemented');
       default:
         break;
     }
@@ -161,6 +170,148 @@ async function simpleInsert(fbCampionship: any, rulesetId: number) {
           extraJoker: fbTip.extraJoker || undefined,
           lonelyHit: fbTip.lonelyHit || undefined,
           points: fbTip.points,
+        },
+      });
+    }
+  }
+}
+
+// biome-ignore lint/suspicious/noExplicitAny: won't type the firebase objects
+async function prepareSync(fbCampionship: any, rulesetId: number) {
+  const teams = await db.team.findMany();
+  const leagues = await db.league.findMany();
+  const users = await db.user.findMany();
+
+  // Get Matches and Players and Tips
+  const { fbMatches, fbPlayers, fbTips } = await loadStandings(
+    fbCampionship.id,
+  );
+
+  const championship = await db.championship.create({
+    data: {
+      slug: fbCampionship.id,
+      name: fbCampionship.name,
+      nr: fbCampionship.nr,
+      published: fbCampionship.published,
+      completed: fbCampionship.completed,
+      extraPointsPublished: fbCampionship.extraPointsPublished,
+      rulesetId,
+    },
+  });
+
+  // Extract rounds
+  for (const r of fbMatches.rounds) {
+    const round = await db.round.create({
+      data: {
+        nr: r.nr,
+        isDoubleRound: r.isDoubleRound,
+        championshipId: championship.id,
+        published: true,
+        completed: true,
+        tipsPublished: true,
+      },
+    });
+    r.roundId = round.id;
+
+    await db.firebaseMapping.create({
+      data: {
+        fbId: r.id,
+        appId: round.id,
+      },
+    });
+  }
+
+  // Extract matches
+  for (const m of fbMatches.matches) {
+    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+    const round = fbMatches.rounds.find((r: any) => r.id === m.roundId);
+    const league = leagues.find((l) => l.slug === m.leagueId);
+    const hometeam = teams.find((t) => t.slug === m.hometeamId);
+    const awayteam = teams.find((t) => t.slug === m.awayteamId);
+
+    const optionalProps = {
+      date: m.date || undefined,
+      leagueId: league?.id,
+      hometeamId: hometeam?.id,
+      awayteamId: awayteam?.id,
+    };
+
+    const match = await db.match.create({
+      data: {
+        nr: m.nr,
+        result: m.result,
+        points: m.points,
+        championshipId: championship.id,
+        roundId: round.roundId,
+        ...optionalProps,
+      },
+    });
+    m.matchId = match.id;
+
+    await db.firebaseMapping.create({
+      data: {
+        fbId: m.id,
+        appId: match.id,
+      },
+    });
+  }
+
+  // Extract players
+  for (const p of fbPlayers) {
+    const user = users.find((u) => u.slug === p.playerId);
+    invariant(user, 'Unknown user');
+
+    const player = await db.player.create({
+      data: {
+        points: p.points,
+        extraPoints: p.extraPoints,
+        totalPoints: p.totalPoints,
+        rank: p.rank,
+        userId: user.id,
+        championshipId: championship.id,
+      },
+    });
+    p.playerId = player.id;
+
+    await db.firebaseMapping.create({
+      data: {
+        fbId: p.id,
+        appId: player.id,
+      },
+    });
+  }
+
+  // Extract tips
+  for (const p of fbPlayers) {
+    const fbPlayerTips = fbTips.get(p.id);
+    for (const matchId of Object.keys(fbPlayerTips.tips)) {
+      const fbTip = fbPlayerTips.tips[matchId];
+
+      if (!fbTip.tip) {
+        return;
+      }
+
+      // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+      const match = fbMatches.matches.find((m: any) => m.id === matchId);
+      invariant(match, 'Unknown match');
+
+      const tip = await db.tip.create({
+        data: {
+          championshipId: championship.id,
+          playerId: p.playerId,
+          matchId: match.matchId,
+          tip: fbTip.tip,
+          joker: fbTip.joker || undefined,
+          extraJoker: fbTip.extraJoker || undefined,
+          lonelyHit: fbTip.lonelyHit || undefined,
+          points: fbTip.points,
+        },
+      });
+
+      await db.firebaseMapping.create({
+        data: {
+          fbId: fbTip.id,
+          appId: tip.id,
         },
       });
     }
