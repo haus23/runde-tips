@@ -32,6 +32,19 @@ export async function action({ request }: ActionFunctionArgs) {
       await syncChampionships();
       return json(null);
     },
+    async backend() {
+      const options = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: '{"routes":true,"resources":[],"standings":"rr2324"}',
+      };
+
+      fetch('https://backend.runde.tips/api/invalidate-cache', options)
+        .then((response) => response.json())
+        .then((response) => console.log(response))
+        .catch((err) => console.error(err));
+      return json(null);
+    },
   });
 }
 
@@ -41,6 +54,9 @@ export default function SyncRoute() {
       <h2 className="text-2xl font-semibold">Datenabgleich</h2>
       <div className="mt-4">
         <Form method="post" className="flex flex-wrap gap-4">
+          <Button type="submit" variant="primary" name="intent" value="backend">
+            Sync Backend
+          </Button>
           <Button
             type="submit"
             variant="primary"
