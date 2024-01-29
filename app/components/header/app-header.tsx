@@ -21,9 +21,16 @@ export function AppHeader() {
       }}
       className="bg-app fixed inset-x-0 top-0 h-14 flex items-center justify-between px-2 sm:px-4 border-b"
     >
-      <Link to="/" className="pl-1 pr-2" variant="primary">
-        <Logo />
-      </Link>
+      <div className="flex items-center gap-x-2 h-14">
+        <Link to="/" className="pl-1 pr-2" variant="primary">
+          <Logo />
+        </Link>
+        <nav className="flex items-center gap-x-2 pt-[0.1rem]">
+          <NavLink to="/">Tabelle</NavLink>
+          <NavLink to="/tipps/spieler">Spieler</NavLink>
+          <NavLink to="/tipps/spiel">Spiele</NavLink>
+        </nav>
+      </div>
       <div className="flex items-center h-12 gap-x-2">
         <ChampionshipSelect />
         <ThemeMenu />

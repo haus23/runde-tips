@@ -7,7 +7,7 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-export default function Index() {
+export default function HomeRoute() {
   return (
     <div>
       <h2>Home</h2>
